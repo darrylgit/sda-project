@@ -1,0 +1,57 @@
+{% load staticfiles %}
+
+{% block extrastyles %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Graduate|Lato|Montserrat|Oxygen" rel="stylesheet">
+{% endblock %}
+
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Hidden brand</a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    
+  </div>
+</nav>
+
+<nav class="navbar fixed-top bg-white shadow-none" style="height:35pt;">
+	<div class="d-flex justify-content-start" style="">
+		<button class="navbar-toggler p-0 border-0" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="outline:0;">
+			<i class="fa fa-bars" aria-hidden="" style="color:black;"></i>
+		</button>
+
+		<a class="navbar-brand ml-3" href="{% url 'uploads:video_index' %}" style="font-size:12pt;color:black;font-family:'Graduate', sans-serif;">Sam Dale Academy</a>
+	</div>
+
+	<div class="d-flex justify-content-end">
+		<div class="d-flex flex-row bd-highlight">
+			<a class="pl-4 pr-3 bd-highlight" id="" href="{% url 'blog:blog_index' %}" style="font-size:11pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;">Twenty Three Hours</a>
+				
+			<div class="vertical-divider border-left py-0" style=""></div>
+
+			<a class="pl-3 bd-highlight" id="" href="{% url 'flatpages:about_index' %}" style="font-size:11pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;">About</a>
+			<a class="pl-4 bd-highlight" id="" href="{% url 'flatpages:contact_index' %}" style="font-size:11pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;">Contact</a>
+		</div>
+	</div>
+</nav>
+
+
+
+<!--scripts-->
+{% block extrascripts %}
+
+{% endblock %}

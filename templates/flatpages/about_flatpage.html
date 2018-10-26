@@ -1,0 +1,50 @@
+{% extends 'global/layout.html' %}
+{% load staticfiles %}
+
+{% block title %}About{% endblock %}
+
+{% block extrastyles %}
+<link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
+{% endblock %}
+
+{# override primary nav #}
+{% block navigation %}
+{% include 'global/partials/nav_secondary.html' %}
+{% endblock %}
+
+{% block header %}
+<header class="" style="margin-top:-40pt;position:relative;width:100vw;height:55vw;">
+	<div class="header-container" style="width:100%;height:100%;">
+		<video id="header-video" class="video-js vjs-big-play-centered vjs-fluid" poster="{{MEDIA_URL}}/brand/poster.png" controls muted="true" data-setup='{"controlBar":false}' height="100vw">
+			<source src="{{ MEDIA_URL }}brand/promo.mp4" type='video/mp4'>
+			<p class="vjs-no-js">
+			To view this video please enable JavaScript, and consider upgrading to a web browser that
+			<a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+			</p>
+		</video>
+	</div>
+</header>
+{% endblock %}  
+
+{% block content %}
+<div class="container-fluid" style="">
+	{% include './partials/profiles.html' %}
+	{% include './partials/pillars.html' %}
+</div>
+{% endblock %}
+
+<!--scripts-->
+{% block extrascripts %}
+<script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+<script type="text/javascript">
+	var video = videojs("#header-video").ready(function(){
+		var player=this;
+		player.on('ended', function() {
+			$(".video-js .vjs-big-play-button").show();
+		});
+		player.on('play', function() {
+			$(".video-js .vjs-big-play-button").hide();
+		});
+	});
+</script>
+{% endblock %}

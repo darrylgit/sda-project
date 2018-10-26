@@ -1,0 +1,47 @@
+{% extends 'global/layout.html' %}
+{% load staticfiles %}
+
+{% block title %}Contact{% endblock %}
+
+{% block extrastyles %}
+{% endblock %}
+
+
+{# override page header #}
+{% block header %}
+	<header class="container-fluid bg-light py-5" style="height:300pt;">
+		<h1 class="text-center" style="color:black;margin-top:100pt;">Contact The Academy</h1>
+		<p class="h6 text-center" style="color:black;font-weight:300;">Get in touch with us to get the ball rolling</p>
+	</header>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+	<div class="row">
+		<div class="col-md-4 col-lg-4 d-flex flex-row justify-content-center">
+			 <div class="flex-column text-center">
+				<i class="fa fa-envelope fa-lg mb-3"></i>
+				<p class="" style="font-size:10pt;">Email us</p>
+				<p class="" style="font-size:10pt;">support@samdaleacademy.com</p>
+			</div>
+		</div>
+		<div class="col-md-4 col-lg-4 d-flex flex-row justify-content-center">
+			<div class="flex-column text-center">
+				<i class="fa fa-map-marker-alt fa-lg mb-3" style=""></i>
+				<p class="" style="font-size:10pt;">Our location</p>
+				<p class="" style="font-size:10pt;">Charlottesville, Virginia</p>
+			</div>
+		</div>
+		<div class="col-md-4 col-lg-4 d-flex flex-row justify-content-center">
+			<div class="flex-column text-center">
+				<i class="fa fa-newspaper fa-lg mb-3"></i>
+				<p class="" style="font-size:10pt;">Press/Media inquiries</p>
+				<p class="" style="font-size:10pt;">press@samdaleacademy.com</p>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block extrascripts %}
+{% endblock %}

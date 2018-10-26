@@ -1,0 +1,1 @@
+from .dev import * #import from production (pro) settings for deployment 

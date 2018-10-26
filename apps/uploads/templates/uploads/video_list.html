@@ -1,0 +1,51 @@
+{% extends 'global/layout.html' %}
+{% load staticfiles %}
+
+
+{% block extrastyles %}
+ <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Videos{% endblock %}
+
+{% block navigation %}
+	{% include 'uploads/partials/nav_search.html' %}
+{% endblock %}
+
+{% block header %}
+<div class="container-fluid" style="margin-top:80pt;">
+	<div class="container">
+		<div class="row">
+	        <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-2" style="">
+	            <!-- center wrapper -->    
+	            <div class="d-flex flex-row justify-content-center">
+	                <!-- flex column wrapper for upload contents -->
+	                <div class="d-flex flex-column">
+	                    <h6 style="width:230px;border:1pt solid none;">Training Videos</h6>
+	                </div>
+	            </div>
+	        </div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+    
+
+{% block content %}
+    <!-- remaining videos -->
+    <div class="container-fluid mt-4" style="">
+    {% include './partials/results.html' %}
+    </div>
+{% endblock %}
+
+
+{# override footer, no footer for this page #}
+{% block footer %}{% endblock %}
+
+
+<!--scripts-->
+{% block extrascripts %}
+ <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+{% endblock %}
+
+

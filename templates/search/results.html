@@ -1,0 +1,38 @@
+{% extends 'global/layout.html' %}
+{% load staticfiles %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block navigation %}
+    {% include 'uploads/partials/nav_search.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="container" style="margin-top:50pt;">
+    <h3>Results</h3>
+        {% if query %}
+            <div class="row">
+                {% for obj in object_list %}
+                <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-5" style="">
+                        <div class="d-flex flex-column" style="">
+                            <a class="" style="" href="{% url 'uploads:video_detail' pk=obj.object.pk %}">
+                                <img src="{{ MEDIA_URL }}{{obj.object.video_thumbnail}}" alt="" width="230" height="auto">
+                            </a>
+
+                            <p class="" style="font-size:10pt;font-weight:500;"><a href="{% url 'uploads:video_detail' pk=obj.object.pk %}" style="color:black;">{{obj.object.title}}</a>
+                            </p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            {% empty %}
+                <p>No results found.</p>
+            {% endfor %}
+
+        {% else %}
+            {# Show some example queries to run, maybe query syntax, something else? #}
+            <h1>No Query</h1>
+        {% endif %}
+    
+</div>
+{% endblock %}

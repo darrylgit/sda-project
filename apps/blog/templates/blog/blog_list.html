@@ -1,0 +1,44 @@
+{% extends 'global/layout.html' %}
+{% load staticfiles %}
+
+{% block title %}Our Blog{% endblock %}
+
+{% block extrastyles %}
+{% endblock %}
+
+{% block header %}
+<header class="container-fluid bg-light py-5" style="height:300pt;">
+    <h1 class="text-center" style="color:black;margin-top:100pt;">Our Blog
+    </h1>
+</header>
+{% endblock %}
+
+{% block content %}
+	<blockquote class="blockquote text-center mx-2 px-5" style="margin-top:50pt;">
+		<p class="mb-0" style="color:black;font-weight:700;font-size:12pt;">“What you do in your 1-2 hours of training doesn’t make you a pro, it makes you a player, but the 22-23 hours outside of the training is what makes you a professional.”</p>
+		<footer class="blockquote-footer"><cite title="Source Title">SDA Academy</cite></footer>
+	</blockquote>
+	<hr class="my-5 mx-5">
+	<div class="container col col-md-6 text-center" style="margin-top:75pt;">
+		{% for b in blog %}
+			<div class="row mb-5">
+				<div class="row">
+					<h5>{{ b.title }}</h5>
+				</div>
+				<div class="row">
+					<p class="">{{ b.published_date }}</p>
+					<p class="">{{ b.text|truncatewords:30|linebreaksbr }}
+						<a href="{% url 'blog:blog_detail' description=b.description pk=b.pk %}">read more</a>
+			        </p>
+		        </div>
+			</div>
+		{% endfor %}
+	</div>
+{% endblock %}
+
+
+{# override footer, no footer this page #}
+{% block footer %}{% endblock %}
+
+
+
