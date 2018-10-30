@@ -17,23 +17,19 @@
     {% endblock %}
 
     {# header unique to page #}
-    <div id="body-container" style="margin-top:40pt;">
       {% block header %}
       {% endblock %}  
 
       {# Main content of page - other layout templates may override this block #}
       {% block content_wrapper %}
-          <div class="container-fluid">
-            <div class="page">
-                {# Render promotions #}
-                <div id="promotions">{% block promo %}{% endblock %}</div>
+        <div class="page">
+            {# Render promotions #}
+            <div id="promotions">{% block promo %}{% endblock %}</div>
 
-                {# Div exists for changes in content structure #}
-                <div id="content">{% block content %}{% endblock %}</div>
-            </div>
-          </div>
+            {# Div exists for changes in content structure #}
+            <div id="content">{% block content %}{% endblock %}</div>
+        </div>
       {% endblock %}
-    </div>
     
 
     {% block footer %}

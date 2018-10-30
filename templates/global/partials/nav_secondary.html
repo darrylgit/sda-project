@@ -1,8 +1,23 @@
 {% load staticfiles %}
 
 {% block extrastyles %}
-<link href="https://fonts.googleapis.com/css?family=Graduate|Lato|Montserrat|Oxygen" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Graduate|Montserrat" rel="stylesheet">
 <style>
+/* height of main nav */
+.nav-h{
+	height: 45px;
+}
+.nav-h-1{
+	height: 50px;
+}
+.nav-h-2{
+	height: 55px;
+}
+
+/* brand name sizes */
+.nav-brand{ 
+	font-size: 1rem;
+}
 .wrapper {
 	display: flex;
 	width: 100%;
@@ -25,11 +40,9 @@
     display: block;
     opacity: .4;
 }
-@media (max-width: 612px) {
-	/* 80px and its content aligned to centre. Pushing it off the screen with the
-	   negative left margin
-	*/
-	.nav-links {
+@media (max-width: 576px) {
+	/* remove links from nav, 0=none */
+	.nav-links-0 {
 		display: none;
 	}
 </style>
@@ -37,23 +50,23 @@
 
 <div class="wrapper">
 	{% include 'global/partials/nav_side_drawer.html' %}
-	<nav class="navbar fixed-top bg-none shadow-none" style="height:35pt;">
-		<div class="d-flex flex-row justify-content-start align-items-center" style="">
+	<nav class="navbar nav-h fixed-top bg-none shadow-none">
+		<div class="d-flex flex-row justify-content-start align-items-center">
 			<button class="navbar-toggler p-0" id="sidebarCollapse" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="outline:0;">
 	            <div class="icon-bar" style="background-color:white;width:18px;height:2px;"></div>
 	            <div class="icon-bar" style="background-color:white;width:18px;height:2px;margin-top:3px;margin-bottom:3px;"></div>
 	            <div class="icon-bar" style="background-color:white;width:18px;height:2px;"></div>                
 	        </button>
-			<a class="link navbar-brand p-0 ml-3" href="{% url 'uploads:video_index' %}" style="font-size:11pt;color:white;font-family:'Graduate', sans-serif;">SAM DALE ACADEMY</a>
+			<a class="link navbar-brand nav-brand p-0 ml-3" href="{% url 'uploads:video_index' %}" style="color:white;font-family:'Graduate', sans-serif;">SAM DALE ACADEMY</a>
 		</div>
 
 		<div class="d-flex flex-row justify-content-end">
-			<a class="nav-links link py-0 pl-4 pr-3 bd-highlight" id="" href="{% url 'blog:blog_index' %}" style="font-size:10pt;color:white;font-family: 'Montserrat', sans-serif;font-weight:300;">Twenty Three Hours</a>
+			<a class="nav-links-0 link py-0 pl-4 pr-3 bd-highlight" id="" href="{% url 'blog:blog_index' %}" style="font-size:10pt;color:white;font-family: 'Montserrat', sans-serif;font-weight:300;">Twenty Three Hours</a>
 				
-			<div class="nav-links link vertical-divider border-left py-0" style=""></div>
+			<div class="nav-links-0 link vertical-divider border-left py-0"></div>
 
-			<a class="nav-links link py-0 pl-3 bd-highlight" id="" href="{% url 'flatpages:about_index' %}" style="font-size:10pt;color:white;font-family: 'Montserrat', sans-serif;font-weight:300;">About</a>
-			<a class="nav-links link py-0 pl-4 bd-highlight" id="" href="{% url 'flatpages:contact_index' %}" style="font-size:10pt;color:white;font-family: 'Montserrat', sans-serif;font-weight:300;">Contact</a>
+			<a class="nav-links-0 link py-0 pl-3 bd-highlight" id="" href="{% url 'flatpages:about_index' %}" style="font-size:10pt;color:white;font-family: 'Montserrat', sans-serif;font-weight:300;">About</a>
+			<a class="nav-links-0 link py-0 pl-4 bd-highlight" id="" href="{% url 'flatpages:contact_index' %}" style="font-size:10pt;color:white;font-family: 'Montserrat', sans-serif;font-weight:300;">Contact</a>
 		</div>
 	</nav>
 <!-- Dark Overlay element -->

@@ -4,39 +4,99 @@
 {% block title %}Contact{% endblock %}
 
 {% block extrastyles %}
+<style>
+
+	/* add or remove margin, apply to section underneath main nav */
+	.nav-mb{
+		margin-top:45px;
+	}
+	.nav-mb-1{
+		margin-top:50px;
+	}
+	.nav-mb-2{
+		margin-top:55px;
+	}
+	.nav-overlap{
+		margin-top:-45px;
+	}
+	.nav-overlap-1{
+		margin-top:-50px;
+	}
+	.nav-overlap-2{
+		margin-top:-55px;
+	}
+	
+	/* header display, height */
+	.header-h-1{
+		height: 100px;
+	}
+	.header-h-2{
+		height: 200px;
+	}
+	.header-h-3{
+		height: 300px;
+	}
+
+	.size-inherit{
+		height: 100%;
+	}
+
+	/* font-weights */
+	.sub-heading{
+		font-weight: lighter;
+	}
+
+	.display-small {
+	  font-size: 14px;
+	  font-weight: 300;
+	  line-height: 2;
+	  font-weight: 400;
+	}
+	.p-line-h{
+		line-height: 2.5;
+		border: 1pt solid red;
+	}
+		
+	@media(max-width:576px){
+		/* header display */
+		h1, h2, h3, h4, h5, h6{
+			font-size: 2rem;
+		}
+	}
+
+</style>
 {% endblock %}
 
 
 {# override page header #}
 {% block header %}
-	<header class="container-fluid bg-light py-5" style="height:300pt;">
-		<h1 class="text-center" style="color:black;margin-top:100pt;">Contact The Academy</h1>
-		<p class="h6 text-center" style="color:black;font-weight:300;">Get in touch with us to get the ball rolling</p>
+	<header class="container-fluid nav-mb header-h-3 bg-light">
+		<div class="d-flex flex-column size-inherit  justify-content-center align-items-center">
+			<h1>Contact The Academy</h1>
+			<p class="h6 sub-heading">Get in touch with us to get the ball rolling</p>
+		</div>
 	</header>
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5 mb-5">
+<div class="container mt-5">
 	<div class="row">
 		<div class="col-md-4 col-lg-4 d-flex flex-row justify-content-center">
 			 <div class="flex-column text-center">
-				<i class="fa fa-envelope fa-lg mb-3"></i>
-				<p class="" style="font-size:10pt;">Email us</p>
-				<p class="" style="font-size:10pt;">support@samdaleacademy.com</p>
+				<i class="fa fa-envelope fa-lg mb-4"></i>
+				<p style="font-size:10pt;">Email us<br class="p-line-h">support@samdaleacademy.com</br></p>
 			</div>
 		</div>
 		<div class="col-md-4 col-lg-4 d-flex flex-row justify-content-center">
 			<div class="flex-column text-center">
-				<i class="fa fa-map-marker-alt fa-lg mb-3" style=""></i>
-				<p class="" style="font-size:10pt;">Our location</p>
-				<p class="" style="font-size:10pt;">Charlottesville, Virginia</p>
+				<i class="fa fa-map-marker-alt fa-lg mb-4"></i>
+				<p style="font-size:10pt;">Our location<br class="p-line-h">Charlottesville, Virginia</br></p>
 			</div>
 		</div>
 		<div class="col-md-4 col-lg-4 d-flex flex-row justify-content-center">
 			<div class="flex-column text-center">
-				<i class="fa fa-newspaper fa-lg mb-3"></i>
-				<p class="" style="font-size:10pt;">Press/Media inquiries</p>
-				<p class="" style="font-size:10pt;">press@samdaleacademy.com</p>
+				<i class="fa fa-newspaper fa-lg mb-4"></i>
+				<p class="" style="font-size:10pt;">Press/Media inquiries<br class="p-line-h">press@samdaleacademy.com</br></p>
 			</div>
 		</div>
 	</div>

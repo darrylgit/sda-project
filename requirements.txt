@@ -4,7 +4,6 @@ celery==4.2.1
 certifi==2018.10.15
 chardet==3.0.4
 Django==2.0
-django-ffmpeg==0.0.11
 django-haystack==2.8.1
 django-videokit==0.0.4
 django-widget-tweaks==1.4.3

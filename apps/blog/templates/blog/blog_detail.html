@@ -4,15 +4,52 @@
 {% block title %}Our Blog{% endblock %}
 
 {% block extrastyles %}
+<style>
+	.p-50{
+		padding-top: 50pt;
+	}
+	.p-75{
+		padding-top: 75pt;
+	}
+	.p-100{
+		padding-top: 100pt;
+	}
+	@media (max-width: 468px){
+		.section-overlap-bottom{
+			margin-top: -75px;
+			height: 75px; 
+			width: 100vw;
+		}
+	}
+	@media (min-width: 468px){
+		.section-overlap-bottom{
+			margin-top: -50px;
+			height: 50px;
+		}
+		.wrapper-width-90 {
+			width: 90vw;
+		}
+	}
+
+</style>
 {% endblock %}
 
+{% block header %}
+<header class="container-fluid bg-light" style="height:300pt;">
+	<div class="wrapper-width-90 mx-auto p-75" style="">
+		<h1>{{ blog.title }}</h1>
+		{% if blog.published_date %}
+		    <p class="" style="font-size:11pt;">published: {{ blog.published_date }}</p>
+	    {% endif %}
+	</div>
+</header>
+{% endblock %}
 
 {% block content %}
-<div class="container col col-md-8" style="margin-top:150pt;">
-    <h1>{{ blog.title }}</h1>
-    {% if blog.published_date %}
-	    <p class="">published: {{ blog.published_date }}</p>
-    {% endif %}
-    <p class="">{{ blog.text|linebreaksbr }}</p>
+<div class="container-fluid wrapper-width-90 section-overlap-bottom px-4 pt-4 bg-white">
+	<p class="" style="font-size:14pt;">{{ blog.text|linebreaksbr }}</p>
 </div>
 {% endblock %}
+
+{# override footer, no footer this page #}
+{% block footer %}{% endblock %}

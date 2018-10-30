@@ -9,13 +9,13 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	width: 225px;
+	width: 235px;
 	height: 100vh;
 	z-index: 9999;
 	transition: all 0.2s;
-	margin-left: -225px;
-	min-width: 225px;
-	max-width: 225px;
+	margin-left: -235px;
+	min-width: 235px;
+	max-width: 235px;
 	}
 	#sidebar.active {
 	margin-left: 0;
@@ -24,14 +24,14 @@
 {% endblock %}
 
 <nav id="sidebar" class="bg-white shadow-sm" style="">
-	<nav class="navbar" style="height:35pt;">
+	<nav class="navbar nav-h">
 		<div class="d-flex flex-row justify-content-start align-items-center" style="">
 			<button class="navbar-toggler p-0" id="dismiss" type="button" style="outline:0;">
 	            <div class="drawer-icon-bar" style="background-color:black;width:18px;height:2px;"></div>
 	            <div class="drawer-icon-bar" style="background-color:black;width:18px;height:2px;margin-top:3px;margin-bottom:3px;"></div>
 	            <div class="drawer-icon-bar" style="background-color:black;width:18px;height:2px;"></div>                
 	        </button>
-			<a class="navbar-brand p-0 ml-3" href="{% url 'uploads:video_index' %}" style="font-size:11pt;color:black;font-family:'Graduate', sans-serif;">SAM DALE ACADEMY</a>
+			<a class="navbar-brand nav-brand p-0 ml-3" href="{% url 'uploads:video_index' %}" style="color:black;font-family:'Graduate', sans-serif;">SAM DALE ACADEMY</a>
 		</div>
 	</nav>
 	<hr class="mt-0 mb-5" />
@@ -55,11 +55,11 @@
 			<!-- Grid row -->
 		    <div class="row">
 		    	<div class="col">
-		    		<a class="bd-highlight" id="" href="" style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><small>About</small></a>
+		    		<a class="bd-highlight" id="" href="{% url 'flatpages:about_index' %}" style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><small>About</small></a>
 		    		
 		    	</div>
 		    	<div class="col">
-		    		<a class="bd-highlight" id="" href="" style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><small>Contact</small></a>
+		    		<a class="bd-highlight" id="" href="{% url 'flatpages:contact_index' %}"  style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><small>Contact</small></a>
 		    		
 		    	</div>
 		    	<div class="col">

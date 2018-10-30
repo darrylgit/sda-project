@@ -4,6 +4,22 @@
 <link href="https://fonts.googleapis.com/css?family=Graduate|Lato|Montserrat|Oxygen" rel="stylesheet">
 
 <style>
+/* height of main nav */
+.nav-h{
+	height: 45px;
+}
+.nav-h-1{
+	height: 50px;
+}
+.nav-h-2{
+	height: 55px;
+}
+
+.nav-brand{
+	font-size: 1rem;
+}
+
+/* nav side drawer */
 .wrapper {
 	display: flex;
 	width: 100%;
@@ -39,7 +55,7 @@
 
 <div class="wrapper">
 	{% include 'global/partials/nav_side_drawer.html' %}
-	<nav class="navbar fixed-top bg-white shadow-none" style="height:35pt;">
+	<nav class="navbar nav-h fixed-top bg-white shadow-sm">
 		<div class="d-flex flex-row justify-content-start align-items-center" style="">
 			<button class="navbar-toggler p-0" id="sidebarCollapse" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="outline:0;">
 	            <div class="icon-bar" style="background-color:black;width:18px;height:2px;"></div>
@@ -48,7 +64,7 @@
 	        </button>
 		
 
-			<a class="navbar-brand p-0 ml-3" href="{% url 'uploads:video_index' %}" style="font-size:11pt;color:black;font-family:'Graduate', sans-serif;">SAM DALE ACADEMY</a>
+			<a class="navbar-brand nav-brand p-0 ml-3" href="{% url 'uploads:video_index' %}" style="color:black;font-family:'Graduate', sans-serif;">SAM DALE ACADEMY</a>
 
 		</div>
 		<div class="d-flex flex-row justify-content-end">

@@ -1,9 +1,9 @@
 html{
+	font-size: 16px; 
 	position: relative;
 	min-height: 100%;
 }
 
 body {
-	margin-bottom: 100pt;  /*Margin bottom by footer height */
 	overflow-x: hidden;  /*prevent horizontal scroll */
 }

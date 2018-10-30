@@ -1,6 +1,6 @@
 {% load widget_tweaks %}
 	
-<form class="input-group my-0 mr-3 col-4 text-right" id="nav-form" method="get" action="{% url 'video_search_view' %}" style="border:1pt solid none;">
+<form class="input-group my-0 mr-3 col-4 text-right py-0" id="nav-form" method="get" action="{% url 'video_search_view' %}">
 	
 	{% render_field search_form.q class="form-control form-control-sm py-0 border-top-0 border-left-0 border-right-0 shadow-none" placeholder="Search" id="search-input" style="background-color:transparent;" %}
 	

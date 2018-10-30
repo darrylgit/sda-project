@@ -5,6 +5,12 @@ import os
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+ALLOWED_HOSTS = ([
+    os.environ.get('APP_ALLOWED_HOSTS')
+    if 'APP_ALLOWED_HOSTS' in os.environ
+    else '127.0.0.1' 
+])
+
 INSTALLED_APPS+=[
 	#added
     #'debug_toolbar',

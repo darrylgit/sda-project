@@ -3,6 +3,8 @@
 __pycache__
 db.sqlite3
 .env
+apps/uploads/templates/uploads/untitled.html
+project/settings/untitled.py
 static/collectstatic
 static/media/brand/poster.png
 static/media/brand/promo.mp4

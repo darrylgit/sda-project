@@ -4,11 +4,42 @@
 {% block extrastyles %}
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Graduate|Lato|Montserrat|Oxygen" rel="stylesheet">
+
+<style>
+  body {
+      margin-bottom: 700px;  /* Margin bottom by footer height */
+      overflow-x: hidden;  /*prevent horizontal scroll */
+    }
+  #footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 650px; /* set height a bit shorter than footer */
+  }
+  @media(max-width:576px){
+    body {
+      margin-bottom: 750px;  /*Margin bottom by footer height */
+    }
+    #footer{
+      height: 700px; /* set height a bit shorter than footer */
+    }
+  }
+
+  @media(min-width:768px){
+    body{
+      margin-bottom: 400px; /*Margin bottom by footer height */
+    }
+    #footer{
+      height: 350px; /* set height a bit shorter than footer */
+    }
+  }
+
+</style>
 {% endblock %}
 
 <!-- Footer -->
 
-<footer class="" id="footer" style="position:absolute;bottom:0;width:100%;height:0pt;">
+<footer class="" id="footer" style="">
       <div class="container-fluid" style="background-color:black;">
 
         <!-- Grid row-->
