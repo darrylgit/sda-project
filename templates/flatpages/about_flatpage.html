@@ -5,6 +5,67 @@
 
 {% block extrastyles %}
 <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
+<style>
+
+	/* add or remove margin, apply to section underneath main nav */
+	.nav-mb{
+		margin-top:45px;
+	}
+	.nav-mb-1{
+		margin-top:50px;
+	}
+	.nav-mb-2{
+		margin-top:55px;
+	}
+	.nav-overlap{
+		margin-top:-45px;
+	}
+	.nav-overlap-1{
+		margin-top:-50px;
+	}
+	.nav-overlap-2{
+		margin-top:-55px;
+	}
+	
+	/* header display, height */
+	.header-h-1{
+		height: 100px;
+	}
+	.header-h-2{
+		height: 200px;
+	}
+	.header-h-3{
+		height: 300px;
+	}
+
+	.size-inherit{
+		height: 100%;
+	}
+
+	/* font-weights */
+	.sub-heading{
+		font-weight: lighter;
+	}
+
+	.display-small {
+	  font-size: 14px;
+	  font-weight: 300;
+	  line-height: 2;
+	  font-weight: 400;
+	}
+	.p-line-h{
+		line-height: 2.5;
+		border: 1pt solid red;
+	}
+		
+	@media(max-width:576px){
+		/* header display */
+		h1, h2, h3, h4, h5, h6{
+			font-size: 2rem;
+		}
+	}
+
+</style>
 {% endblock %}
 
 {# override primary nav #}
@@ -12,19 +73,14 @@
 {% include 'global/partials/nav_secondary.html' %}
 {% endblock %}
 
+{# override page header #}
 {% block header %}
-<header class="" style="margin-top:-40pt;position:relative;width:100vw;height:55vw;">
-	<div class="header-container" style="width:100%;height:100%;">
-		<video id="header-video" class="video-js vjs-big-play-centered vjs-fluid" poster="{{MEDIA_URL}}/brand/poster.png" controls autoplay muted="true" data-setup='{"controlBar":false}' height="100vw">
-			<source src="{{ MEDIA_URL }}brand/promo.mp4" type='video/mp4'>
-			<p class="vjs-no-js">
-			To view this video please enable JavaScript, and consider upgrading to a web browser that
-			<a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-			</p>
-		</video>
-	</div>
-</header>
-{% endblock %}  
+	<header class="container-fluid nav-mb header-h-3 bg-light">
+		<div class="d-flex flex-column size-inherit  justify-content-center align-items-center">
+			<h1>About Us</h1>
+		</div>
+	</header>
+{% endblock %} 
 
 {% block content %}
 <div class="container-fluid" style="">
@@ -35,16 +91,10 @@
 
 <!--scripts-->
 {% block extrascripts %}
-<script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
-<script type="text/javascript">
-	var video = videojs("#header-video").ready(function(){
-		var player=this;
-		player.on('ended', function() {
-			$(".video-js .vjs-big-play-button").show();
-		});
-		player.on('play', function() {
-			$(".video-js .vjs-big-play-button").hide();
-		});
-	});
-</script>
+{{ block.super }}
+	<!-- jQuery CDN - Slim version (without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+    <script src="{% static 'global/js/ds.video.bundle.js' %}" type="text/javascript"></script>
+
 {% endblock %}

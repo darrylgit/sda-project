@@ -37,9 +37,9 @@
 {% block header %}
 <header class="container-fluid bg-light" style="height:300pt;">
 	<div class="wrapper-width-90 mx-auto p-75" style="">
-		<h1>{{ blog.title }}</h1>
-		{% if blog.published_date %}
-		    <p class="" style="font-size:11pt;">published: {{ blog.published_date }}</p>
+		<h1>{{ post.title }}</h1>
+		{% if post.published_date %}
+		    <p class="" style="font-size:11pt;">published: {{ post.published_date }}</p>
 	    {% endif %}
 	</div>
 </header>
@@ -47,7 +47,7 @@
 
 {% block content %}
 <div class="container-fluid wrapper-width-90 section-overlap-bottom px-4 pt-4 bg-white">
-	<p class="" style="font-size:14pt;">{{ blog.text|linebreaksbr }}</p>
+	<p class="" style="font-size:14pt;">{{ post.text|linebreaksbr }}</p>
 </div>
 {% endblock %}
 

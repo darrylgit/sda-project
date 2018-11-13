@@ -7,7 +7,7 @@
 <style>
 	/* add or remove margin, apply to section underneath main nav */
 	.nav-mb{
-		margin-top:45px;
+		margin-top:30px;
 	}
 	.nav-mb-1{
 		margin-top:50px;
@@ -23,6 +23,14 @@
 	}
 	.nav-overlap-2{
 		margin-top:-55px;
+	}
+
+	/* add or remove margin, apply to section underneath main nav */
+	.row-mb{
+		margin-bottom:100px;
+	}
+	.row-inner-mb{
+		margin-bottom:40px;
 	}
 	
 	/* header display, height */
@@ -48,12 +56,12 @@
 {% endblock %}
 
 {% block header %}
-<header class="container-fluid nav-mb header-h-3 bg-light">
-	<div class="d-flex flex-column size-inherit  justify-content-center align-items-center">
-	    <h1 class="text-center">Our Blog</h1>
-	</div>
-</header>
-{% endblock %}
+	<header class="container-fluid nav-mb header-h-3 bg-light">
+		<div class="d-flex flex-column size-inherit  justify-content-center align-items-center">
+			<h1>Our Blog</h1>
+		</div>
+	</header>
+{% endblock %} 
 
 {% block content %}
 	<blockquote class="blockquote text-center mx-2 px-5" style="margin-top:50pt;">
@@ -62,12 +70,17 @@
 	</blockquote>
 	<hr class="my-5 mx-5">
 	<div class="container col-8" style="margin-top:75pt;">
-		{% for b in blog %}
-			<div class="row mb-4">
-				<h5>{{ b.title }}</h5>
-				<p class="">{{ b.published_date }}</p>
-				<p class="">{{ b.text|truncatewords:20|linebreaksbr }}
-					<a href="{% url 'blog:blog_detail' description=b.description pk=b.pk %}">read more</a>
+		{% for p in post %}
+			<div class="row row-mb">
+				{% if p.image %}
+				<div class="row row-inner-mb">
+	                <img class="col-12" src="{{ MEDIA_URL }}{{p.image}}" height="300" alt="">
+                </div>
+                {% endif %}
+				<h5>{{ p.title }}</h5>
+				<p class="">{{ p.published_date }}</p>
+				<p class="">{{ p.text|truncatewords:20|linebreaksbr }}
+					<a href="{% url 'blog:blog_detail' slug=p.slug %}">read more</a>
 		        </p>
 			</div>
 		{% endfor %}

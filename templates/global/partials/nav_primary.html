@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 {% block extrastyles %}
-<link href="https://fonts.googleapis.com/css?family=Graduate|Lato|Montserrat|Oxygen" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Graduate|Montserrat" rel="stylesheet">
 
 <style>
 /* height of main nav */
@@ -42,47 +42,120 @@
     display: block;
     opacity: .4;
 }
-@media (max-width: 612px) {
-	/* 80px and its content aligned to centre. Pushing it off the screen with the
-	   negative left margin
-	*/
 
-	.nav-links {
+.navbar-toggler {
+	outline:0 !important;
+	border-radius: 0;
+}
+.icon-bar {
+	background-color:black;
+	width:18px;
+	height:2px;
+}
+.icon-bar-m{
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+.fa-font{
+	font-size: 14px;
+}
+
+.li-display-brand{
+	font-size: 16px;
+	color:black;
+	font-family:'Graduate', sans-serif;
+}
+.li-display-secondary{
+	 font-size:10pt;
+	 color:black;
+	 font-family: 'Montserrat', sans-serif;font-weight:300;"
+}
+
+.bg-transparent{
+	background-color: transparent;
+}
+.vd {
+	background-color:black;
+	height:14px;
+	width:1px;
+
+}
+
+@media(max-width:576px){
+	.li-display-brand{
+		font-size: 18px;
+		color:black;
+		font-family:'Graduate', sans-serif;
+	}
+	.icon-bar {
+		background-color:black;
+		width:22px;
+		height:2px;
+	}
+	.icon-bar-m{
+		margin-top: 4px;
+		margin-bottom: 4px;
+	}
+
+	.remove{
 		display: none;
 	}
+	
+	.fa-font{
+		font-size: 18px;
+	}
+	.fa-font-1{
+		font-size: 22px;
+	}
+}
+
+@media(max-width:576px){
+	.nav-form{
+		display: none;
+	}
+}
+
+@media (max-width: 768px) {
+	/* Remove links */
+	#nav-form{
+		position: absolute;
+		right: -20px;
+
+	}
+	.li-display-0{
+		display: none;
+	}
+}
 </style>
 {% endblock %}
 
-<div class="wrapper">
-	{% include 'global/partials/nav_side_drawer.html' %}
-	<nav class="navbar nav-h fixed-top bg-white shadow-sm">
-		<div class="d-flex flex-row justify-content-start align-items-center" style="">
-			<button class="navbar-toggler p-0" id="sidebarCollapse" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="outline:0;">
-	            <div class="icon-bar" style="background-color:black;width:18px;height:2px;"></div>
-	            <div class="icon-bar" style="background-color:black;width:18px;height:2px;margin-top:3px;margin-bottom:3px;"></div>
-	            <div class="icon-bar" style="background-color:black;width:18px;height:2px;"></div>                
-	        </button>
-		
+<div class="wrapper" id="toggler">
+		<nav class="navbar nav-h fixed-top bg-white shadow-sm">
+			<div class="d-flex flex-row justify-content-start align-items-center" id="">
+				<a class="navbar-brand nav-brand li-display-brand p-0" href="{% url 'upload:video_index' %}">SAM DALE ACADEMY</a>
+			</div>
 
-			<a class="navbar-brand nav-brand p-0 ml-3" href="{% url 'uploads:video_index' %}" style="color:black;font-family:'Graduate', sans-serif;">SAM DALE ACADEMY</a>
+			<div class="d-flex flex-row justify-content-end align-items-center">
+				<a class="li-display-secondary li-display-0 py-0 pl-4 pr-3 bd-highlight" href="{% url 'blog:blog_index' %}">Twenty Three Hours</a>
+					
+				<div class="li-display-0 vd"></div>
 
-		</div>
-		<div class="d-flex flex-row justify-content-end">
-			<a class="nav-links py-0 pl-4 pr-3 bd-highlight" id="" href="{% url 'blog:blog_index' %}" style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;">Twenty Three Hours</a>
-				
-			<div class="nav-links vertical-divider border-left py-0" style=""></div>
-
-			<a class="nav-links py-0 pl-3 bd-highlight" id="" href="{% url 'flatpages:about_index' %}" style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;">About</a>
-			<a class="nav-links py-0 pl-4 bd-highlight" id="" href="{% url 'flatpages:contact_index' %}" style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;">Contact</a>
-		</div>
-	</nav>
-
-<!-- Dark Overlay element -->
+				<a class="li-display-secondary li-display-0 py-0 pl-3 bd-highlight" href="{% url 'flatpages:about_index' %}">About</a>
+				<a class="li-display-secondary li-display-0 py-0 pl-4 bd-highlight" href="{% url 'flatpages:contact_index' %}">Contact</a>
+			</div>
+		</nav>
+		{% include 'global/partials/nav_side_drawer.html' %}
+    <!-- Dark Overlay element -->
     <div class="overlay"></div>
 </div>
 
 
 
 <!--scripts-->
-{% block extrascripts %}{% endblock %}
+{% block extrascripts %}
+<!-- jQuery CDN - Slim version (without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="{% static 'global/js/ds.nav.bundle.js' %}"></script>
+{% endblock %}
 

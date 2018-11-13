@@ -13,16 +13,43 @@ ALLOWED_HOSTS = ([
 
 INSTALLED_APPS+=[
 	#added
-    #'debug_toolbar',
 	'haystack',
     'widget_tweaks',
     'videokit',
 	#apps
     'apps.search',
-	'apps.uploads',
+	'apps.upload',
     'apps.blog',
     'apps.flatpages',
 ]
+
+DATABASE_DEFAULT = {
+    'default': {
+        'ENGINE': os.environ.get('APP_BASE_ENGINE'),
+        'NAME': os.environ.get('APP_BASE_NAME'),
+        'USER': os.environ.get('APP_BASE_USER'),
+        'PASSWORD': os.environ.get('APP_BASE_PASSWORD'),
+        'HOST': os.environ.get('APP_BASE_HOST'),
+
+        'TEST': {
+            'NAME': os.environ.get('APP_BASE_TEST_NAME'),
+        },
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
+    },
+}
+
+DATABASES = (
+    DATABASE_DEFAULT
+    if 'APP_BASE_HOST' in os.environ
+    else {
+        'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        },
+    }
+)
 
 HAYSTACK_CONNECTIONS = {
     'default': {

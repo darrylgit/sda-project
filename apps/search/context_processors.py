@@ -1,7 +1,7 @@
-from haystack.forms import ModelSearchForm
+from .forms import ProjectModelSearchForm
 
 def search_form(request):
     """
     Ensure that the search form is available site wide
     """
-    return {'search_form': ModelSearchForm(request.GET)}
+    return {'search_form': ProjectModelSearchForm(request.GET)}

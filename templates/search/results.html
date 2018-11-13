@@ -4,7 +4,7 @@
 {% block title %}Search Results{% endblock %}
 
 {% block navigation %}
-    {% include 'uploads/partials/nav_search.html' %}
+    {% include 'upload/partials/nav_search.html' %}
 {% endblock %}
 
 {% block content %}
@@ -15,11 +15,11 @@
                 {% for obj in object_list %}
                 <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-5" style="">
                         <div class="d-flex flex-column" style="">
-                            <a class="" style="" href="{% url 'uploads:video_detail' pk=obj.object.pk %}">
+                            <a class="" style="" href="{% url 'upload:video_detail' slug=obj.object.slug %}">
                                 <img src="{{ MEDIA_URL }}{{obj.object.video_thumbnail}}" alt="" width="230" height="auto">
                             </a>
 
-                            <p class="" style="font-size:10pt;font-weight:500;"><a href="{% url 'uploads:video_detail' pk=obj.object.pk %}" style="color:black;">{{obj.object.title}}</a>
+                            <p class="" style="font-size:10pt;font-weight:500;"><a href="{% url 'upload:video_detail' slug=obj.object.slug %}" style="color:black;">{{obj.object.title}}</a>
                             </p>
                         </div>
                     </div>

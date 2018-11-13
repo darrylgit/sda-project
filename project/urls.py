@@ -22,19 +22,15 @@ from django.conf.urls.static import static
 
 from apps.search.views import VideoSearchView
 
-from django.contrib import admin
-
 admin.site.site_title = 'Sam Dale Academy Administration'
 admin.site.site_header = 'Sam Dale Academy LLC'
-
-
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls, name='admin'),
 ]
 
 urlpatterns += [
-    url(r'', include('apps.uploads.urls', namespace='uploads')),
+    url(r'', include('apps.upload.urls', namespace='upload')),
     url(r'', include('apps.flatpages.urls', namespace='flatpages')),
     url(r'^search/?$', VideoSearchView.as_view(), name='video_search_view'), #override haystack view, custom url directs to custom view
     url(r'^our-blog/', include('apps.blog.urls', namespace='blog')),

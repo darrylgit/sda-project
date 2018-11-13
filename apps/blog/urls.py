@@ -6,5 +6,5 @@ app_name = 'blog'
 
 urlpatterns = [
 	url(r'^$', BlogListView.as_view(), name='blog_index'),
-	url(r'^(?P<description>[-\w]+)-(?P<pk>\d+)/?$', BlogDetailView.as_view(), name ='blog_detail'),
+	url(r'^(?P<slug>[-\w]+)/?$', BlogDetailView.as_view(), name ='blog_detail'),
 ]

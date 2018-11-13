@@ -1,0 +1,193 @@
+
+{% load staticfiles %}
+
+{% block extrastyles %}
+<link href="https://fonts.googleapis.com/css?family=Graduate|Montserrat" rel="stylesheet">
+
+<style>
+/* height of main nav */
+.nav-h{
+	height: 45px;
+}
+.nav-h-1{
+	height: 50px;
+}
+.nav-h-2{
+	height: 55px;
+}
+
+.nav-brand{
+	font-size: 1rem;
+}
+
+/* nav side drawer */
+.wrapper {
+	display: flex;
+	width: 100%;
+	}
+.overlay {
+    display: none;
+    position: fixed;
+    /* full screen */
+    width: 100vw;
+    height: 100vh;
+    /* transparent black */
+    background: rgba(0, 0, 0, 0.7);
+    /* middle layer, i.e. appears below the sidebar */
+    z-index: 9998;
+    /* animate the transition */
+    transition: all 0.2s;
+}
+/* display .overlay when it has the .active class */
+.overlay.active {
+    display: block;
+    opacity: .4;
+}
+
+.navbar-toggler {
+	outline:0 !important;
+	border-radius: 0;
+}
+.icon-bar {
+	background-color:black;
+	width:18px;
+	height:2px;
+}
+.icon-bar-m{
+	margin-top: 3px;
+	margin-bottom: 3px;
+}
+
+.fa-font{
+	font-size: 14px;
+}
+
+.li-display-brand{
+	font-size: 16px;
+	color:black;
+	font-family:'Graduate', sans-serif;
+}
+.li-display-secondary{
+	 font-size:10pt;
+	 color:black;
+	 font-family: 'Montserrat', sans-serif;font-weight:300;"
+}
+
+.bg-transparent{
+	background-color: transparent;
+}
+
+.vd {
+	background-color:black;
+	height:14px;
+	width:1px;
+
+}
+
+@media(max-width:576px){
+	.li-display-brand{
+		font-size: 18px;
+		color:black;
+		font-family:'Graduate', sans-serif;
+	}
+	.icon-bar {
+		background-color:black;
+		width:22px;
+		height:2px;
+	}
+	.icon-bar-m{
+		margin-top: 4px;
+		margin-bottom: 4px;
+	}
+	
+	.fa-font{
+		font-size: 18px;
+	}
+	.fa-font-1{
+		font-size: 22px;
+	}
+}
+
+@media(max-width:576px){
+	.nav-form{
+		display: none;
+	}
+}
+
+@media (max-width: 768px) {
+	/* Remove links */
+	#nav-form{
+		position: absolute;
+		right: -20px;
+
+	}
+	.li-display-0{
+		display: none;
+	}
+}
+
+@media (max-width: 576px) {
+	#searchCollapse{
+		position: absolute;
+		right: 75px;
+		transform: translateY(-50%);
+	}	
+}
+@media (min-width: 576px) and (max-width: 768px){
+	#searchCollapse{
+		position: absolute;
+		right: 20px;
+		transform: translateY(-50%);
+	}
+	
+}
+@media (min-width: 768px) {
+	#searchCollapse{
+		position: absolute;
+		right: 350px;
+		transform: translateY(-50%);
+	}
+	
+}
+
+
+</style>
+{% endblock %}
+
+<div class="wrapper" id="toggler">
+		<nav class="navbar nav-h fixed-top bg-white shadow-sm">
+			<div class="d-flex flex-row justify-content-start align-items-center" id="">
+				<a class="navbar-brand nav-brand li-display-brand p-0" href="{% url 'upload:video_index' %}">SAM DALE ACADEMY</a>
+			</div>
+			<div class="d-flex flex-row justify-content-end">
+				<span class="input-group-append">
+				<button class="btn border-0 shadow-none bg-transparent p-0" id="searchCollapse" type="button"><i class="fa fa-search"></i>
+				</button>
+				</span>	
+			</div>
+			<div class="d-flex flex-row justify-content-end align-items-center">
+				
+
+				<a class="li-display-secondary li-display-0 py-0 pr-3 bd-highlight" href="{% url 'blog:blog_index' %}">Twenty Three Hours</a>
+					
+				<div class="li-display-0 vd"></div>
+
+				<a class="li-display-secondary li-display-0 py-0 pl-3 bd-highlight" href="{% url 'flatpages:about_index' %}">About</a>
+				<a class="li-display-secondary li-display-0 py-0 pl-4 bd-highlight" href="{% url 'flatpages:contact_index' %}">Contact</a>
+			</div>
+		</nav>
+    <!-- Dark Overlay element -->
+    <div class="overlay"></div>
+</div>
+<!-- buttons effected if inside wrapper  -->
+{% include 'global/partials/nav_side_drawer.html' %}
+{% include 'search/partials/search.html' %}
+
+
+<!--scripts-->
+{% block extrascripts %}
+<!-- jQuery CDN - Slim version (without AJAX) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="{% static 'global/js/ds.nav.bundle.js' %}"></script>
+<script src="{% static 'global/js/ds.search.bundle.js' %}"></script>
+{% endblock %}

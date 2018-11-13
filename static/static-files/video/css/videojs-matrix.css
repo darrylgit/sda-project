@@ -1,0 +1,6 @@
+/* remove big play button. and progress bar background --> display: none; */
+.vjs-matrix .vjs-big-play-button,
+...{
+	
+}
+

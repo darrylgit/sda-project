@@ -1,0 +1,129 @@
+{% extends 'global/layout.html' %}
+{% load staticfiles %}
+
+{% block title %}Videos{% endblock %}
+
+{% block extrastyles %}
+ <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
+
+<style>
+	/* add or remove margin, apply to section underneath main nav */
+	.nav-mb{
+		margin-top:45px;
+	}
+	.nav-mb-1{
+		margin-top:50px;
+	}
+	.nav-mb-2{
+		margin-top:55px;
+	}
+
+	.nav-overlap{
+		margin-top:-45px;
+	}
+	.nav-overlap-1{
+		margin-top:-50px;
+	}
+	.nav-overlap-2{
+		margin-top:-55px;
+	}
+	
+	/* header display, height */
+	.header-h-1{
+		height: 100px;
+	}
+	.header-h-2{
+		height: 200px;
+	}
+	.header-h-3{
+		height: 300px;
+	}
+
+	.size-inherit{
+		height: 100%;
+	}
+
+	/* font-weights */
+	.sub-heading{
+		font-weight: lighter;
+	}
+
+	.display-small {
+	  font-size: 14px;
+	  font-weight: 300;
+	  line-height: 2;
+	  font-weight: 400;
+	}
+
+	.p-line-h{ /* paragraph line height */
+		line-height: 2.5;
+		border: 1pt solid red;
+	}
+
+	img{
+		width: 230px;
+		height: auto;
+	}
+	.dr {/* divide row */
+			display: none;
+		}
+		
+	@media(max-width:576px){
+		/* header display */
+		h1, h2, h3, h4, h5, h6{
+			font-size: 2rem;
+		}
+		.nav-mb-2x{ /* 2x smallest margin, 45px * 2, only small devices */
+			margin-top:90px;
+		}
+		img {
+			width: 350px;
+			height: auto;
+		}
+
+		dr {
+		  box-sizing: content-box;
+		  height: 0;
+		  overflow: visible;
+		  
+		}
+
+	}
+
+</style>
+{% endblock %}
+
+
+{% block navigation %}
+	{% include 'upload/partials/nav_search.html' %}
+{% endblock %}
+
+
+
+{# override page header #}
+{% block header %}
+	<header class="container-fluid nav-mb header-h-3 bg-light">
+		<div class="d-flex flex-column size-inherit justify-content-center align-items-center">
+			<h1>Training Videos</h1>
+		</div>
+	</header>
+{% endblock %}
+
+{% block content %}
+    <!-- remaining videos -->
+    <div class="container-fluid nav-mb-2x">
+    {% include './partials/results.html' %}
+    </div>
+{% endblock %}
+
+
+{# override footer, no footer for this page #}
+{% block footer %}{% endblock %}
+
+
+<!--scripts-->
+{% block extrascripts %}
+ <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+{% endblock %}
+
+

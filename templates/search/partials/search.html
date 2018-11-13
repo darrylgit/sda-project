@@ -1,12 +1,58 @@
+{% load staticfiles %}
 {% load widget_tweaks %}
+
+{% block extrastyles %}
+<link href="https://fonts.googleapis.com/css?family=Graduate|Montserrat" rel="stylesheet">
+
+<style>
+	#search {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+	z-index: 9999;
+	margin-right: -100%;
+	}
+	#search.active{
+		margin-right: 0;
+	}
+
+	.w-80{
+		width: 80% !important;
+	}
+
+	select, textarea, input {
+		font-size: 16px;
+	}
+
 	
-<form class="input-group my-0 mr-3 col-4 text-right py-0" id="nav-form" method="get" action="{% url 'video_search_view' %}">
-	
-	{% render_field search_form.q class="form-control form-control-sm py-0 border-top-0 border-left-0 border-right-0 shadow-none" placeholder="Search" id="search-input" style="background-color:transparent;" %}
-	
-	{# disable button if there is no user input #}
-	<span class="input-group-append">
-		<button class="btn btn-sm border-0 shadow-none" type="submit" style="background-color:transparent;"><i class="fa fa-search" style="color:black;"></i>
-		</button>
-	</span>
-</form>
+
+</style>
+{% endblock %}
+
+<nav id="search" class="bg-white shadow-sm">
+	<nav class="navbar nav-h">
+		<div class="d-flex flex-row justify-content-start align-items-center">
+			<button class="btn btn-md border-0 shadow-none bg-transparent p-0" id="remove-search"><i class="fa fa-arrow-left"></i>
+			</button>
+		</div>
+
+		<div class="d-flex flex-row justify-content-end w-80">
+			<form class="input-group mx-0 py-0 bg-transparent" method="get" action="{% url 'video_search_view' %}">
+				{% render_field search_form.q class="form-control form-control-sm py-0 mr-2 border-top-0 border-left-0 border-right-0 bg-transparent shadow-none" placeholder="Search SDA Drills" id="search-form"%}	
+
+				{# disable button if there is no user input #}
+				<span class="input-group-append">
+					<button class="btn btn-md border-0 shadow-none bg-transparent px-0" type="submit"><i class="fa fa-search"></i>
+					</button>
+				</span>
+			</form>	
+		</div>
+	</nav>
+</nav>
+
+
+<!--scripts-->
+{% block extrascripts %}
+{% endblock %}
+    

@@ -1,0 +1,50 @@
+{% extends 'global/layout.html' %}
+{% load staticfiles %}
+
+{% block extrastyles %}
+ <link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Videos{% endblock %}
+
+{% block navigation %}
+	{% include 'upload/partials/nav_search.html' %}
+{% endblock %}
+
+{% block content %}
+	<!--video detail-container-->
+	
+	<header class="container-fluid" style="height:35vw;margin-top:100pt;">
+		<div class="row">
+			<div class="col">
+				<video id="my-video" class="vjs-matrix video-js vjs-fluid vjs-big-play-centered" controls data-setup="{}" width="auto" height="auto">
+					<source src="{{ MEDIA_URL }}{{media.video}}" type='video/mp4'>
+					<p class="vjs-no-js">
+					To view this video please enable JavaScript, and consider upgrading to a web browser that
+					<a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+					</p>
+				</video>
+			</div>
+			<div class="col-4"></div>
+		</div>
+	</header>
+
+	<div class="video-text container-fluid">
+		<div class="row">
+			<div class="col">
+				<h5>{{media.title}}</h5>
+				<p>{{media.published_date}}</p>
+			</div>
+			<div class="col-4"></div>
+		</div>
+    </div>
+{% endblock %}
+
+{# override footer, no footer for this page #}
+{% block footer %}{% endblock %}
+
+<!--scripts-->
+{% block extrascripts %}
+ <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+{% endblock %}
+

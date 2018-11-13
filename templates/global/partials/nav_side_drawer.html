@@ -1,38 +1,79 @@
-
 {% load staticfiles %}
 
 {% block extrastyles %}
-<link href="https://fonts.googleapis.com/css?family=Graduate|Lato|Montserrat|Oxygen" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Graduate|Montserrat" rel="stylesheet">
 
 <style>
-	#sidebar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 235px;
-	height: 100vh;
-	z-index: 9999;
-	transition: all 0.2s;
-	margin-left: -235px;
-	min-width: 235px;
-	max-width: 235px;
+
+
+@media(max-width:576px){
+	#drawer {
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: 9999;
+		transition: all .2s;
+		margin-right: -100vw;
+		min-width: 100vw;
+		max-width: 100vw;
 	}
-	#sidebar.active {
-	margin-left: 0;
+	#drawer.active {
+		margin-right: 0;
 	}
+	
+	#xWrapper{
+		/* width of icon bar */
+		width: 22px;
+	}
+	.bar-xl{
+		height:20px;
+		width:2px;
+		background-color:black;
+		transform: rotate(45deg);
+		margin-left: 45%;
+		-ms-transform: rotate(45deg); /* IE 9 */
+		-webkit-transform: rotate(45deg); /* Safari and Chrome */
+	}
+	.bar-xr{
+		height:20px;
+		width:2px;
+
+		background-color:black;
+		transform: rotate(90deg);
+		-ms-transform: rotate(90deg); /* IE 9 */
+		-webkit-transform: rotate(90deg); /* Safari and Chrome */
+	}
+}
+@media(min-width:576px){
+	#drawer {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 250px;
+		height: 100vh;
+		z-index: 9999;
+		transition: all 0.2s;
+		margin-left: -250px;
+		min-width: 250px;
+		max-width: 250px;
+	}
+	#drawer.active {
+		margin-left: 0;
+	}
+
+}
+
 </style>
 {% endblock %}
 
-<nav id="sidebar" class="bg-white shadow-sm" style="">
+<nav id="drawer" class="bg-white shadow-sm">
 	<nav class="navbar nav-h">
-		<div class="d-flex flex-row justify-content-start align-items-center" style="">
-			<button class="navbar-toggler p-0" id="dismiss" type="button" style="outline:0;">
-	            <div class="drawer-icon-bar" style="background-color:black;width:18px;height:2px;"></div>
-	            <div class="drawer-icon-bar" style="background-color:black;width:18px;height:2px;margin-top:3px;margin-bottom:3px;"></div>
-	            <div class="drawer-icon-bar" style="background-color:black;width:18px;height:2px;"></div>                
-	        </button>
-			<a class="navbar-brand nav-brand p-0 ml-3" href="{% url 'uploads:video_index' %}" style="color:black;font-family:'Graduate', sans-serif;">SAM DALE ACADEMY</a>
+		<div class="d-flex flex-row justify-content-start align-items-center">
+			<a class="navbar-brand nav-brand li-display-brand p-0" href="{% url 'upload:video_index' %}">SAM DALE ACADEMY</a>
 		</div>
+
 	</nav>
 	<hr class="mt-0 mb-5" />
 
@@ -88,28 +129,7 @@
 
 <!--scripts-->
 {% block extrascripts %}
-<!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	
-	<script type="text/javascript">
-    $(document).ready(function () {
-        $('#sidebarCollapse').on('click', function () {
-            // open sidebar
-            $('#sidebar').addClass('active');
-            // fade in the overlay
-            $('.overlay').addClass('active');
-            // prevent page scrolling
-            $('body').css({"overflow":"hidden"})
-        });
-
-        $('#dismiss, .overlay').on('click', function () {
-            // hide sidebar
-            $('#sidebar').removeClass('active');
-            // fade out the overlay
-            $('.overlay').removeClass('active');
-            $('body').css({"overflow":"scroll"})
-        });
-    });
-</script>
-
 {% endblock %}
+
+
+
