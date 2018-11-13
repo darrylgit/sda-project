@@ -5,16 +5,13 @@ db.sqlite3
 .env
 .proenv
 
-apps/upload/templates/upload/partials/untitled.html
-apps/upload/templates/upload/partials/navOrig.html
 apps/blog/migrations/
 apps/flatpages/migrations/
 apps/search/migrations/
 apps/uploads/migrations/
-static/media/brand/poster.png
-static/media/brand/promo.mp4
 static/media/uploads
 static/static/admin
 static/static/global/favicon.ico
 static/static/global/img
+static/static-files/
 .DS_Store
