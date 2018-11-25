@@ -1,35 +1,6 @@
 {% load staticfiles %}
 {% load widget_tweaks %}
 
-{% block extrastyles %}
-<link href="https://fonts.googleapis.com/css?family=Graduate|Montserrat" rel="stylesheet">
-
-<style>
-	#search {
-	position: fixed;
-	top: 0;
-	right: 0;
-	width: 100%;
-	z-index: 9999;
-	margin-right: -100%;
-	}
-	#search.active{
-		margin-right: 0;
-	}
-
-	.w-80{
-		width: 80% !important;
-	}
-
-	select, textarea, input {
-		font-size: 16px;
-	}
-
-	
-
-</style>
-{% endblock %}
-
 <nav id="search" class="bg-white shadow-sm">
 	<nav class="navbar nav-h">
 		<div class="d-flex flex-row justify-content-start align-items-center">

@@ -1,0 +1,39 @@
+{% extends 'global/layout.html' %}
+{% load staticfiles %}
+
+{% block title %}Contact{% endblock %}
+
+{# override page header #}
+{% block header %}
+	<header class="container-fluid nav-mb ht-md bg-light d-flex flex-column justify-content-center align-items-center">
+		<h1>Contact The Academy</h1>
+		<blockquote>
+			<p>Get in touch with us to get the ball rolling</p>
+		</blockquote>
+	</header>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+	<div class="row">
+		<div class="col-md-4 col-lg-4 d-flex flex-row justify-content-center">
+			 <div class="flex-column text-center">
+				<i class="fa fa-envelope fa-lg mb-4"></i>
+				<p class="txt-12">Email us<br>support@samdaleacademy.com</br></p>
+			</div>
+		</div>
+		<div class="col-md-4 col-lg-4 d-flex flex-row justify-content-center">
+			<div class="flex-column text-center">
+				<i class="fa fa-map-marker-alt fa-lg mb-4"></i>
+				<p class="txt-12">Our location<br>Charlottesville, Virginia</br></p>
+			</div>
+		</div>
+		<div class="col-md-4 col-lg-4 d-flex flex-row justify-content-center">
+			<div class="flex-column text-center">
+				<i class="fa fa-newspaper fa-lg mb-4"></i>
+				<p class="txt-12">Press/Media inquiries<br>press@samdaleacademy.com</br></p>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

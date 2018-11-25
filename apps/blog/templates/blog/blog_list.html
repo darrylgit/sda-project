@@ -3,93 +3,34 @@
 
 {% block title %}Our Blog{% endblock %}
 
-{% block extrastyles %}
-<style>
-	/* add or remove margin, apply to section underneath main nav */
-	.nav-mb{
-		margin-top:30px;
-	}
-	.nav-mb-1{
-		margin-top:50px;
-	}
-	.nav-mb-2{
-		margin-top:55px;
-	}
-	.nav-overlap{
-		margin-top:-45px;
-	}
-	.nav-overlap-1{
-		margin-top:-50px;
-	}
-	.nav-overlap-2{
-		margin-top:-55px;
-	}
-
-	/* add or remove margin, apply to section underneath main nav */
-	.row-mb{
-		margin-bottom:100px;
-	}
-	.row-inner-mb{
-		margin-bottom:40px;
-	}
-	
-	/* header display, height */
-	.header-h-1{
-		height: 100px;
-	}
-	.header-h-2{
-		height: 200px;
-	}
-	.header-h-3{
-		height: 300px;
-	}
-
-	.size-inherit{
-		height: 100%;
-	}
-
-	/* font-weights */
-	.sub-heading{
-		font-weight: lighter;
-	}
-</style>
-{% endblock %}
-
 {% block header %}
-	<header class="container-fluid nav-mb header-h-3 bg-light">
-		<div class="d-flex flex-column size-inherit  justify-content-center align-items-center">
-			<h1>Our Blog</h1>
-		</div>
+	<header class="container-fluid nav-mb ht-md bg-light d-flex flex-column justify-content-center align-items-center">
+		<h1>Our Blog</h1>
+		<blockquote class="text-center mx-5 px-5">
+			<p>"What you do in your 1-2 hours of training doesn’t make you a pro, it makes you a player, but the 22-23 hours outside of the training is what makes you a professional."</p>
+			<footer class="blockquote-footer"><cite title="Source Title">SDA Academy</cite></footer>
+		</blockquote>
 	</header>
 {% endblock %} 
 
 {% block content %}
-	<blockquote class="blockquote text-center mx-2 px-5" style="margin-top:50pt;">
-		<p class="mb-0" style="color:black;font-weight:500;font-size:14pt;">"What you do in your 1-2 hours of training doesn’t make you a pro, it makes you a player, but the 22-23 hours outside of the training is what makes you a professional."</p>
-		<footer class="blockquote-footer"><cite title="Source Title">SDA Academy</cite></footer>
-	</blockquote>
-	<hr class="my-5 mx-5">
-	<div class="container col-8" style="margin-top:75pt;">
-		{% for p in post %}
-			<div class="row row-mb">
-				{% if p.image %}
-				<div class="row row-inner-mb">
-	                <img class="col-12" src="{{ MEDIA_URL }}{{p.image}}" height="300" alt="">
+<figure id="grid-3x" class="container-fluid">
+	{% for p in post %}
+        <a href="{% url 'blog:blog_detail' slug=p.slug %}">
+            <div class="thumbnail-wrapper">
+                {% if p.image %}
+	                <img src="{{ MEDIA_URL }}{{p.image}}" alt="thumbnail">
+	            {% endif %}
+                <div class="thumb-info">
+                    <p class="thumb-text-primary pt-1 mb-1">{{ p.title }}</p>
+                    <p class="thumb-text-secondary">{{p.description|truncatewords:9|linebreaksbr}}</p>
                 </div>
-                {% endif %}
-				<h5>{{ p.title }}</h5>
-				<p class="">{{ p.published_date }}</p>
-				<p class="">{{ p.text|truncatewords:20|linebreaksbr }}
-					<a href="{% url 'blog:blog_detail' slug=p.slug %}">read more</a>
-		        </p>
-			</div>
-		{% endfor %}
-	</div>
+            </div>
+        </a>
+	{% endfor %}
+</figure>
 {% endblock %}
 
 
 {# override footer, no footer this page #}
 {% block footer %}{% endblock %}
-
-
-

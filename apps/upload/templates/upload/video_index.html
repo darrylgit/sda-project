@@ -1,0 +1,137 @@
+{% extends 'global/layout.html' %}
+{% load staticfiles %}
+
+
+{% block extrastyles %}
+<link href="https://vjs.zencdn.net/7.2.3/video-js.css" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Videos{% endblock %}
+
+{% block navigation %}
+	{% include 'search/partials/nav_search.html' %}
+{% endblock %}
+
+{% block header %}
+<figure id="video-player" class="container-fluid nav-mb-sm nav-mb-xs">
+	<div id="playlist-video-main">
+		<video controls>
+			<source src="{{MEDIA_URL}}{{main.video}}" type="video/mp4">
+			<source src="" type="video/webm">
+			<p class="vjs-no-js">
+				To view this video please enable JavaScript, and consider upgrading to a web browser that
+				<a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+			</p>
+		</video>
+		<div id="playlist-video-main-info">
+			<p id="video-main-title" class="video-main-text-primary pt-4 mb-3">{{main.title}}</p>
+			<p id="video-main-description" class="video-main-text-secondary">{{main.description}}</p>
+		</div>
+	</div>
+	<figcaption id="playlist-video-secondary">
+		<div class="heading-banner-sm d-flex align-items-center"><p class="heading2 my-0">Next up.</p></div>
+		<div class="wrapper-scroll">
+		{% for s in secondary %}
+			<a href="{{MEDIA_URL}}{{s.video}}">
+				<div class="thumbnail-wrapper">
+					<img src="{{MEDIA_URL}}{{s.video_thumbnail}}" alt="playlist video thumbnail"> 
+					<div class="playlist-video-secondary-info">
+						<p class="thumb-text-primary pt-1 mb-1">{{s.title|truncatewords:6|linebreaksbr}}</p>
+						<p class="thumb-text-secondary">{{s.description|truncatewords:9|linebreaksbr}}</p>
+					</div>
+				</div>
+			</a>
+		{% endfor %}
+		</div>
+	</figcaption>
+</figure>
+{% endblock %}
+
+{% block content %}
+<figure id="grid-4x" class="container-fluid">
+	<div class="heading-banner-lg d-flex align-items-center"><p class="heading2 mb-0">More Drills.</p></div>
+	{% for v in grid %}
+        <a href="{{MEDIA_URL}}{{v.video}}">
+            <div class="thumbnail-wrapper">
+                <img src="{{ MEDIA_URL }}{{v.video_thumbnail}}" alt="playlist video thumbnail">
+                <div class="thumb-info">
+                    <p class="thumb-text-primary pt-1 mb-1">{{v.title|truncatewords:6|linebreaksbr}}</p>
+                    <p class="thumb-text-secondary">{{v.description|truncatewords:9|linebreaksbr}}</p>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+</figure> 
+{% endblock %}
+
+
+{# override footer, no footer for this page #}
+{% block footer %}{% endblock %}
+
+<!--scripts-->
+{% block extrascripts %}
+ <script src="https://vjs.zencdn.net/7.2.3/video.js"></script>
+ <script>
+ 	(function(){
+ 		function playlistVideoEventHandler(e, elem){
+ 			e.preventDefault();
+			videotarget = elem.getAttribute("href");
+			filename = videotarget.substr(0, videotarget.lastIndexOf('.')) || videotarget;
+			video = document.querySelector("#playlist-video-main video");
+			source = document.querySelectorAll("#playlist-video-main video source");
+			source[0].src = filename + ".mp4";
+			source[1].src = filename + ".webm";
+			video.load();
+			//video.play();
+ 		}
+ 		function playlistVideoInfoEventHandler(elem){
+ 			target = document.querySelectorAll("#playlist-video-secondary a");
+			
+			title= document.getElementById("video-main-title");
+			description = document.getElementById("video-main-description");
+
+			for (i =0; i<target.length; i++){
+				if (target[i] === elem){
+					if (i==0){
+						title.innerHTML = "{{secondary.0.title}}";
+						description.innerHTML = "{{secondary.0.text}}";
+					}
+					else if (i==1){
+						title.innerHTML = "{{secondary.1.description}}";
+						description.innerHTML = "{{secondary.1.description}}";
+					}
+					else if (i==2){
+						title.innerHTML = "{{secondary.2.title}}";
+						description.innerHTML = "{{secondary.2.description}}";
+					}
+					else if (i==3){
+						title.innerHTML = "{{secondary.3.title}}";
+						description.innerHTML = "{{secondary.3.description}}";
+					}
+					else if (i==4){
+						title.innerHTML = "{{secondary.4.title}}";
+						description.innerHTML = "{{secondary.4.description}}";
+					}
+					else if (i==5){
+						title.innerHTML = "{{secondary.5.title}}";
+						description.innerHTML = "{{secondary.5.description}}";
+					}
+				}
+			}
+		}
+	
+ 		function playlistEventListener(){
+ 			var video_player = document.getElementById("playlist-video-secondary"),
+			links = video_player.getElementsByTagName('a');
+			for (var i=0; i<links.length; i++) {
+				links[i].onclick = function(e){
+					playlistVideoEventHandler(e, this);
+					playlistVideoInfoEventHandler(this);
+				}
+			}
+ 		}
+
+ 		document.addEventListener("DOMContentLoaded", playlistEventListener);
+ 	})();
+ </script>
+{% endblock %}

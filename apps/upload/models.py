@@ -7,7 +7,7 @@ from videokit.models import VideoField, VideoSpecField
 class Video(models.Model):
 	author = models.ForeignKey(User, on_delete=models.CASCADE)
 	title = models.CharField(max_length=100, null=True)
-	description = models.CharField(max_length=200, blank=True, null=True)
+	description = models.CharField(max_length=200, null=True)
 	video = VideoField(upload_to = 'upload/video/', null = True,
     	mimetype_field = 'video_mimetype',
     	duration_field = 'video_duration',

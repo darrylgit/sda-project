@@ -1,106 +1,43 @@
 {% load staticfiles %}
 
 {% block extrastyles %}
-<link href="https://fonts.googleapis.com/css?family=Graduate|Montserrat" rel="stylesheet">
-
-<style>
-
-
-@media(max-width:576px){
-	#drawer {
-		position: fixed;
-		top: 0;
-		right: 0;
-		width: 100vw;
-		height: 100vh;
-		z-index: 9999;
-		transition: all .2s;
-		margin-right: -100vw;
-		min-width: 100vw;
-		max-width: 100vw;
-	}
-	#drawer.active {
-		margin-right: 0;
-	}
-	
-	#xWrapper{
-		/* width of icon bar */
-		width: 22px;
-	}
-	.bar-xl{
-		height:20px;
-		width:2px;
-		background-color:black;
-		transform: rotate(45deg);
-		margin-left: 45%;
-		-ms-transform: rotate(45deg); /* IE 9 */
-		-webkit-transform: rotate(45deg); /* Safari and Chrome */
-	}
-	.bar-xr{
-		height:20px;
-		width:2px;
-
-		background-color:black;
-		transform: rotate(90deg);
-		-ms-transform: rotate(90deg); /* IE 9 */
-		-webkit-transform: rotate(90deg); /* Safari and Chrome */
-	}
-}
-@media(min-width:576px){
-	#drawer {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 250px;
-		height: 100vh;
-		z-index: 9999;
-		transition: all 0.2s;
-		margin-left: -250px;
-		min-width: 250px;
-		max-width: 250px;
-	}
-	#drawer.active {
-		margin-left: 0;
-	}
-
-}
-
-</style>
+<link rel="stylesheet" type="text/css" href="{% static 'global/css/ds-nav.css' %}">
 {% endblock %}
 
+{# side drawer #}
 <nav id="drawer" class="bg-white shadow-sm">
 	<nav class="navbar nav-h">
 		<div class="d-flex flex-row justify-content-start align-items-center">
-			<a class="navbar-brand nav-brand li-display-brand p-0" href="{% url 'upload:video_index' %}">SAM DALE ACADEMY</a>
+			<a class="navbar-brand nav-brand li-display-brand p-0" href="{% url 'flatpage:index' %}">SAM DALE ACADEMY</a>
 		</div>
 
 	</nav>
 	<hr class="mt-0 mb-5" />
-
 	<ul class="list-group">
-	  <li class="list-group-item border-0" style=""><a class="bd-highlight" id="" href="https://www.samdaleacademy.com/" target="_blank" style="font-size:12pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><i class="fa fa-external-link-alt fa-sm mr-3"></i><small>The Academy</small></a></li>
-	</ul>
-
-	<ul class="list-group mt-4">
-		<li class="list-group-item border-0"><a class="bd-highlight" id="" href="{% url 'blog:blog_index' %}" style="font-size:12pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><i class="fa fa-pencil-alt fa-sm mr-3"></i><small>Twenty Three Hours</small></a></li>
-		<li class="list-group-item border-0"><a class="bd-highlight" id="" href="https://www.samdaleacademy.com/pages/podcast" target="_blank" style="font-size:12pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><i class="fa fa-podcast fa-sm mr-3"></i><small>Podcasts</small></a></li>
+	  <li class="list-group-item w-95 border-0"><a class="bd-highlight link-display-md" href="{% url 'upload:video_index' %}">Videos</a></li>
 	</ul>
 	
-	<!-- Section -->
-	<!-- Section -->
+	<ul class="list-group mt-4">
+		<li class="list-group-item w-95 border-0"><a class="bd-highlight link-display-md" href="{% url 'blog:blog_index' %}">Twenty Three Hours</a></li>
+		
+	</ul>
+	<ul class="list-group mt-4">
+		<li class="list-group-item w-95 border-0"><a class="bd-highlight link-display-md" href="https://www.samdaleacademy.com/pages/podcast" target="_blank">Podcasts<i class="fa fa-external-link-alt fa-sm fa-sm-drawer-style"></i></a></li>
+	  <li class="list-group-item w-95 border-0"><a class="bd-highlight link-display-md" href="https://www.samdaleacademy.com" target="_blank">The Academy<i class="fa fa-external-link-alt fa-sm fa-sm-drawer-style"></i></a></li>
+	</ul>
 	
 	<!-- Footer -->
-	<div class="drawer-footer bg-light" style="width:100%;height:100pt;position:absolute;bottom:0;">
+	<div class="drawer-footer bg-light">
 		<!-- Footer Links -->
 		<div class="container-fluid pt-2" style="width:90%;">
 			<!-- Grid row -->
 		    <div class="row">
 		    	<div class="col">
-		    		<a class="bd-highlight" id="" href="{% url 'flatpages:about_index' %}" style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><small>About</small></a>
+		    		<a class="bd-highlight" id="" href="{% url 'flatpage:about_index' %}" style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><small>About</small></a>
 		    		
 		    	</div>
 		    	<div class="col">
-		    		<a class="bd-highlight" id="" href="{% url 'flatpages:contact_index' %}"  style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><small>Contact</small></a>
+		    		<a class="bd-highlight" id="" href="{% url 'flatpage:contact_index' %}"  style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><small>Contact</small></a>
 		    		
 		    	</div>
 		    	<div class="col">

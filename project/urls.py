@@ -30,8 +30,8 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    url(r'', include('apps.upload.urls', namespace='upload')),
-    url(r'', include('apps.flatpages.urls', namespace='flatpages')),
+    url(r'', include('apps.flatpage.urls', namespace='flatpage')),
+    url(r'^videos/', include('apps.upload.urls', namespace='upload')),
     url(r'^search/?$', VideoSearchView.as_view(), name='video_search_view'), #override haystack view, custom url directs to custom view
     url(r'^our-blog/', include('apps.blog.urls', namespace='blog')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

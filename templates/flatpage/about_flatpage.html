@@ -1,0 +1,24 @@
+{% extends 'global/layout.html' %}
+{% load staticfiles %}
+
+{% block title %}About{% endblock %}
+
+{# override primary nav #}
+{% block navigation %}
+{% include 'global/partials/nav_secondary.html' %}
+{% endblock %}
+
+{# override page header #}
+{% block header %}
+	<header class="container-fluid nav-mb ht-md bg-light d-flex flex-column justify-content-center align-items-center">
+		<h1>About Us</h1>
+	</header>
+{% endblock %} 
+
+{% block content %}
+<div class="container-fluid">
+	{% include './partials/profiles.html' %}
+	{% include './partials/pillars.html' %}
+</div>
+{% endblock %}
+

@@ -4,35 +4,27 @@
 {% block title %}Search Results{% endblock %}
 
 {% block navigation %}
-    {% include 'upload/partials/nav_search.html' %}
+    {% include 'search/partials/nav_search.html' %}
 {% endblock %}
 
 {% block content %}
-<div class="container" style="margin-top:50pt;">
-    <h3>Results</h3>
-        {% if query %}
-            <div class="row">
-                {% for obj in object_list %}
-                <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 mb-5" style="">
-                        <div class="d-flex flex-column" style="">
-                            <a class="" style="" href="{% url 'upload:video_detail' slug=obj.object.slug %}">
-                                <img src="{{ MEDIA_URL }}{{obj.object.video_thumbnail}}" alt="" width="230" height="auto">
-                            </a>
-
-                            <p class="" style="font-size:10pt;font-weight:500;"><a href="{% url 'upload:video_detail' slug=obj.object.slug %}" style="color:black;">{{obj.object.title}}</a>
-                            </p>
+     <figure id="grid-4x" class="container-fluid nav-mb-sm">
+        {% if object_list %}
+            <h3 class="heading2 mb-0">Results</h3>
+            {% for obj in object_list %}
+                <a href="{{MEDIA_URL}}{{obj.video}}">
+                    <div class="thumbnail-wrapper">
+                        <img src="{{ MEDIA_URL }}{{obj.video_thumbnail}}" alt="playlist video thumbnail">
+                        <div class="playlist-video-secondary-info">
+                            <p class="thumb-text-primary pt-1 mb-1">{{obj.title|truncatewords:6|linebreaksbr}}</p>
+                            <p class="thumb-text-secondary">{{obj.description|truncatewords:9|linebreaksbr}}</p>
                         </div>
                     </div>
-                </div> 
-            </div>
-            {% empty %}
-                <p>No results found.</p>
+                </a>
             {% endfor %}
-
         {% else %}
-            {# Show some example queries to run, maybe query syntax, something else? #}
-            <h1>No Query</h1>
+            <p class="heading2">No Results</p>
+            <p class="heading3">Try queries like ball handling, shooting drills, or conditioning!</p>
         {% endif %}
-    
-</div>
+    </figure>
 {% endblock %}

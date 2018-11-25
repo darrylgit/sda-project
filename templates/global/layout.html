@@ -2,12 +2,15 @@
 {% load staticfiles %}
 
 {% block styles %}
+ <!-- Global -->
+<link rel="stylesheet" type="text/css" href="{% static 'global/css/ds.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'global/css/ds-grid.css' %}">
 <!-- Bootstrap 4 -->
  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap4.1.3/css/bootstrap.css' %}">
- <!-- Global -->
- <link rel="stylesheet" type="text/css" href="{% static 'global/css/styles.css' %}">
 <!-- Font Awesome 5  -->
  <link rel="stylesheet" type="text/css" href="{% static 'fontawesome5.4.1/css/all.css' %}">
+ <!-- Google Fonts  -->
+ <link href="https://fonts.googleapis.com/css?family=Graduate|Montserrat" rel="stylesheet">
 {% endblock %}
 
 {% block layout %}
@@ -40,12 +43,9 @@
 
 {# Local scripts #}
 {% block scripts %}
-
-    <!-- Twitter Bootstrap -->
 {% endblock %}
 
 {% block extrascripts %}
-
 {% endblock %}
 
 {% block onbodyload %}

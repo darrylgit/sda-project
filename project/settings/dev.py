@@ -20,7 +20,7 @@ INSTALLED_APPS+=[
     'apps.search',
 	'apps.upload',
     'apps.blog',
-    'apps.flatpages',
+    'apps.flatpage',
 ]
 
 DATABASE_DEFAULT = {

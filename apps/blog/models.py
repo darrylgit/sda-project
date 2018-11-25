@@ -7,8 +7,8 @@ from django.utils import timezone
 class Post(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200, null = True)
-    description = models.CharField(max_length=200, blank=True, null=True)
-    image = models.ImageField(upload_to = 'blog/img/', blank = True, null = True)
+    description = models.CharField(max_length=200, null=True)
+    image = models.ImageField(upload_to = 'blog/img/', null = True)
     text = models.TextField(null=True)
     slug = models.SlugField(unique=True)
     published_date = models.DateTimeField(default=timezone.now)
