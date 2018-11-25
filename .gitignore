@@ -8,10 +8,10 @@ db.sqlite3
 apps/blog/migrations/
 apps/flatpages/migrations/
 apps/search/migrations/
-apps/uploads/migrations/
-static/media/uploads
+apps/upload/migrations/
 static/static/admin
 static/static/global/favicon.ico
 static/static/global/img
+static/media/
 static/static-files/
 .DS_Store
