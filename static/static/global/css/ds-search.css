@@ -1,0 +1,41 @@
+@media(max-width:576px){
+	.nav-form{
+		display: none;
+	}
+}
+
+@media (max-width: 768px) {
+	/* Remove links */
+	#nav-form{
+		position: absolute;
+		right: -20px;
+
+	}
+	.li-display-0{
+		display: none;
+	}
+}
+
+@media (max-width: 576px) {
+	#searchCollapse{
+		position: absolute;
+		right: 75px;
+		transform: translateY(-50%);
+	}	
+}
+@media (min-width: 576px) and (max-width: 768px){
+	#searchCollapse{
+		position: absolute;
+		right: 20px;
+		transform: translateY(-50%);
+	}
+	
+}
+@media (min-width: 768px) {
+	#searchCollapse{
+		position: absolute;
+		right: 380px;
+		transform: translateY(-50%);
+	}
+	
+}

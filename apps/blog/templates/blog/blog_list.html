@@ -1,20 +1,10 @@
 {% extends 'global/layout.html' %}
 {% load staticfiles %}
 
-{% block title %}Our Blog{% endblock %}
-
-{% block header %}
-	<header class="container-fluid nav-mb ht-md bg-light d-flex flex-column justify-content-center align-items-center">
-		<h1>Our Blog</h1>
-		<blockquote class="text-center mx-5 px-5">
-			<p>"What you do in your 1-2 hours of training doesn’t make you a pro, it makes you a player, but the 22-23 hours outside of the training is what makes you a professional."</p>
-			<footer class="blockquote-footer"><cite title="Source Title">SDA Academy</cite></footer>
-		</blockquote>
-	</header>
-{% endblock %} 
+{% block title %}Our Blog | Posts{% endblock %}
 
 {% block content %}
-<figure id="grid-3x" class="container-fluid">
+<figure id="grid-3x" class="container-fluid nav-mb-sm">
 	{% for p in post %}
         <a href="{% url 'blog:blog_detail' slug=p.slug %}">
             <div class="thumbnail-wrapper">
@@ -29,8 +19,22 @@
         </a>
 	{% endfor %}
 </figure>
+<!--pagination-->
+<div class="pagination d-flex justify-content-center">
+    <span class="step-links">
+    	<a href="{% url 'blog:blog_index' %}">&laquo; first</a>
+        {% if post.has_previous %}
+            <a href="{% url 'blog:blog_list'%}?page={{ post.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ post.number }} of {{ post.paginator.num_pages }}.
+        </span>
+
+        {% if post.has_next %}
+            <a href="?page={{ post.next_page_number }}">next</a>
+            <a href="?page={{ post.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 {% endblock %}
-
-
-{# override footer, no footer this page #}
-{% block footer %}{% endblock %}

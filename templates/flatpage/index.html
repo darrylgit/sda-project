@@ -3,10 +3,15 @@
 
 {% block title %}Home{% endblock %}
 
+{# override primary nav #}
+{% block navigation %}
+{% include 'global/partials/nav_secondary.html' %}
+{% endblock %}
+
 {# override page header #}
 {% block header %}
-	<header class="container-fluid nav-mb ht-md bg-light d-flex flex-column justify-content-center align-items-center">
-		<h1>Home Page</h1>
+	<header class="container-fluid nav-mb ht-md bg-dark d-flex flex-column justify-content-center align-items-center">
+		<p class="heading1 fc-white">Home Page</p>
 	</header>
 {% endblock %}
 

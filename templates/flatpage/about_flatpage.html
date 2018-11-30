@@ -10,15 +10,15 @@
 
 {# override page header #}
 {% block header %}
-	<header class="container-fluid nav-mb ht-md bg-light d-flex flex-column justify-content-center align-items-center">
-		<h1>About Us</h1>
+	<header class="container-fluid nav-mb bg-dark ht-md d-flex flex-column justify-content-center align-items-center">
+		<p class="heading1 fc-white">About Us.</p>
 	</header>
 {% endblock %} 
 
 {% block content %}
-<div class="container-fluid">
-	{% include './partials/profiles.html' %}
-	{% include './partials/pillars.html' %}
-</div>
+{% include './partials/profiles.html' %}
+{% include './partials/mission.html' %}
+{% include './partials/pillars.html' %}
+{% include './partials/partners.html' %}
 {% endblock %}
 

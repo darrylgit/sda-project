@@ -6,12 +6,9 @@ db.sqlite3
 .proenv
 
 apps/blog/migrations/
-apps/flatpages/migrations/
-apps/search/migrations/
 apps/upload/migrations/
-static/static/admin
-static/static/global/favicon.ico
 static/static/global/img
+static/static/global/favicon.ico
 static/media/
 static/static-files/
 .DS_Store

@@ -43,12 +43,12 @@
 }
 .icon-bar {
 	background-color:black;
-	width:18px;
+	width:20px;
 	height:2px;
 }
 .icon-bar-m{
-	margin-top: 3px;
-	margin-bottom: 3px;
+	margin-top: 4px;
+	margin-bottom: 4px;
 }
 
 .fa-font{
@@ -58,12 +58,12 @@
 .li-display-brand{
 	font-size: 16px;
 	color:black;
-	font-family:'Graduate', sans-serif;
+	font-family: 'Montserrat', sans-serif;font-weight:700;"
 }
 .li-display-secondary{
-	 font-size:10pt;
+	 font-size:12px;
 	 color:black;
-	 font-family: 'Montserrat', sans-serif;font-weight:300;"
+	 font-family: 'Montserrat', sans-serif;font-weight:600;"
 }
 
 .bg-transparent{
@@ -83,7 +83,6 @@
 		font-family:'Graduate', sans-serif;
 	}
 	.icon-bar {
-		background-color:black;
 		width:22px;
 		height:2px;
 	}
@@ -146,7 +145,7 @@
 		width: 22px;
 	}
 	.bar-xl{
-		height:20px;
+		height:22px;
 		width:2px;
 		background-color:black;
 		transform: rotate(45deg);
@@ -155,7 +154,7 @@
 		-webkit-transform: rotate(45deg); /* Safari and Chrome */
 	}
 	.bar-xr{
-		height:20px;
+		height:22px;
 		width:2px;
 
 		background-color:black;
@@ -212,10 +211,4 @@
 
 #search.active{
 	margin-right: 0;
-}
-.w-80{
-	width: 80% !important;
-}
-.w-95{
-	width: 95%;
 }

@@ -1,64 +1,63 @@
 {% load staticfiles %}
 
-<div class="container-fluid mt-4">
-	<h1 class="my-5 text-center">The Founders</h1>
-	
-	{# row 1 #}
-	<div class="row py-3">
-		<div class="col-md-6 text-center">
-			<img class="rounded" src="{% static 'global/img/headshots/dg_headshot.png' %}" width="350" alt="Profile Headshot">
-		</div>
-		<div class="col-md-5" style="border:1pt solid none;">
-			<div class="container px-0">
-				<div class="profile-body">
-					<h5 class="profile-name">Daniel Ginsberg</h5>
-					<p class="profile-title">Co-Founder & CEO</p>
-					<ul class="list-inline my-4" id="profile-social">
-						<li class="list-inline-item"><a href=""><i class="fab fa-facebook fa-lg"></i></a></li>
-						<li class="list-inline-item"><a href=""><i class="fab fa-instagram fa-lg"></i></a></li>
-						<li class="list-inline-item"><a href=""><i class="fab fa-twitter fa-lg"></i></a></li>
-					</ul>
-					<hr class="my-0">
-					<p class="profile-text">
-						<p class="h6" style="">BA’ Sustainable Business & Sociology '17</p>
-						<p class="h6" style=""><small>Co-founder and CEO of Sam Dale Academy, Daniel has over 5 years of coaching and operational experience.</small></p>  
-						<p class="h6" style=""><small>As a coach, Daniel has been on the scene since high school, spending his last summer both preparing for college ball and assisting one of the top AAU basketball programs in Virginia. He spent the next four years training other athletes during his off season and offered the same regimen when he took his talents overseas.</small></p> 
-						<p class="h6" style=""><small>Daniel holds a Plant-Based Nutrition Certification from Cornell University and is a champion of health, educating and implementing dieting strategies for athletes.</small></p>
-						<li class="list-inline-item"><a href="">Full Bio</a></li>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<hr class="my-5">
-	{# row 2 #}
-	<div class="row py-3">
-		<div class="col-md-6 text-center ">
-			<img class="rounded" src="{% static 'global/img/headshots/sd_headshot.png' %}" width="350" alt="Profile Headshot">
-		</div>
-		<div class="col-md-5" style="border:1pt solid none;">
-			<div class="container px-0">
-				<div class="profile-body">
-					<h5 class="profile-name">Sampson Dale</h5>
-					<p class="profile-title">Co-Founder & Head Director</p>
-					<ul class="list-inline my-4" id="profile-social">
-						<li class="list-inline-item"><a href=""><i class="fab fa-facebook fa-lg"></i></a></li>
-						<li class="list-inline-item"><a href=""><i class="fab fa-instagram fa-lg"></i></a></li>
-						<li class="list-inline-item"><a href=""><i class="fab fa-twitter fa-lg"></i></a></li>
-					</ul>
-					<hr class="my-0">
-					<p class="profile-text">
-						<p class="h6" style="">BA’ Communications 17'<br>MA’ Athletic Coaching Education 19'</p>
-
-						<p class="h6" style=""><small>Co-founder and Head Director of Sam Dale Academy, Sam is a seasoned professional that has over 10 years of training and development experience.</small></p>  
-						<p class="h6" style=""><small>A mentor by nature, Sam effectively projects leadership, passion and self-discipline through his coaching. He is well versed in strategic, functional basketball training and integrates innovative training ideologies such as block and randomized practice into SDA workouts; coupled with his own experience as a former athlete, he brings a sense of knowledge and structure to every session.</small></p> 
-						<p class="h6" style=""><small>Sam is currently the assistant women’s basketball coach at Green Mountain College.</small></p>
-						<li class="list-inline-item"><a href="">Full Bio</a></li>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<hr class="my-5">
+<div class="ht-md text-center d-flex flex-column justify-content-center">
+	<p class="heading1 fc-black">The Team.</p>
+	<p class="heading3 fc-black lh-0 pt-3">Founders & Leadership</p>
+	<i class="fas fa-chevron-down fa-3x fc-black"></i>
 </div>
+{# row #}
+<div class="row pt-0 py-5 bg-light">
+		<div class="col-md-5">
+			<div class="text-center">
+				<img class="rounded-circle" src="{% static 'global/img/headshots/dg_headshot.png' %}" width="250" height="250" alt="Profile Headshot">
+				<p class="txt-18-bd lh-0 pt-4">Daniel Ginsberg</p>
+				<p class="txt-14">Co-Founder & CEO</p>
+				<p class="txt-12-semi"><em>BA’ Sustainable Business & Sociology '17</em></p>
+				<hr class="mt-0 wpx-70 bg-warning">
+			</div>
+		</div>
+			<div class="col-md-7 px-0">
+				<div class="profile wpc-100 hpc-100 d-flex flex-row justify-content-center align-items-center">
+					<div class="p-wrapper txt-16 wpc-80">
+						<p><small>Daniel has over 5 years of coaching experience.</small></p>
+						<p><small>As a coach, Daniel has been on the scene since high school, spending his last summer both preparing for college ball and assisting one of the top AAU basketball programs in Virginia. He spent the next four years training other athletes during his off season and offered the same regimen when he took his talents overseas.</small></p> 
+						<p><small>Daniel holds a Plant-Based Nutrition Certification from Cornell University and is a champion of health, educating and implementing dieting strategies for athletes.</small></p>
+					</div>
+				</div>
+			</div>
+		
+	</div>
+</div>
+<div class="row bg-lightblue py-5">
+		<div class="col-md-5">
+			<div class="text-center">
+				<img class="rounded-circle" src="{% static 'global/img/headshots/sd_headshot.png' %}" width="250" height="250" alt="Profile Headshot">
+				<p class="txt-18-bd lh-0 pt-4">Sampson Dale</p>
+				<p class="txt-14-md">Co-Founder & Head Director</p>
+				<p class="txt-12-semi"><em>BA’ Communications 17'<br>MA’ Athletic Coaching Education 19'</br></em></p>
+				<hr class="mt-0 bg-warning wpx-70">
+			</div>
+		</div>
+		<div class="col-md-7 px-0">
+			<div class="profile wpc-100 hpc-100 d-flex flex-row justify-content-center align-items-center">
+				<div class="p-wrapper txt-16 wpc-80">
+					<p><small>Sam is a seasoned professional with over 10 years of training and development experience.</small></p>  
+					<p><small>A mentor by nature, Sam effectively projects leadership, passion and self-discipline through his coaching. He is well versed in strategic, functional basketball training and integrates innovative training ideologies such as block and randomized practice into SDA workouts; coupled with his own experience as a former athlete, he brings a sense of knowledge and structure to every session.</small></p> 
+					<p><small>Sam is currently the assistant women’s basketball coach at Green Mountain College.</small></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% block extrascripts %}
+<script>
+	function(){
+		function highlight(){
+
+		}
+		document.addEventListener("DOMContentLoaded", highlight, false);
+	}();
+</script>
+{% endblock %}
+

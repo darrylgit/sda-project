@@ -6,11 +6,10 @@
 
 {# side drawer #}
 <nav id="drawer" class="bg-white shadow-sm">
-	<nav class="navbar nav-h">
+	<nav class="navbar nav-h-2 bg-light">
 		<div class="d-flex flex-row justify-content-start align-items-center">
-			<a class="navbar-brand nav-brand li-display-brand p-0" href="{% url 'flatpage:index' %}">SAM DALE ACADEMY</a>
+			<a class="nav-h-2 bg-darker d-flex flex-column justify-content-center px-3 ml-4" href="{% url 'flatpage:index' %}"><img src="{% static 'global/img/brand/sda_site_logo_header_sample1.png' %}" width="120" alt="Logo"></a>
 		</div>
-
 	</nav>
 	<hr class="mt-0 mb-5" />
 	<ul class="list-group">
@@ -22,42 +21,42 @@
 		
 	</ul>
 	<ul class="list-group mt-4">
-		<li class="list-group-item w-95 border-0"><a class="bd-highlight link-display-md" href="https://www.samdaleacademy.com/pages/podcast" target="_blank">Podcasts<i class="fa fa-external-link-alt fa-sm fa-sm-drawer-style"></i></a></li>
-	  <li class="list-group-item w-95 border-0"><a class="bd-highlight link-display-md" href="https://www.samdaleacademy.com" target="_blank">The Academy<i class="fa fa-external-link-alt fa-sm fa-sm-drawer-style"></i></a></li>
+		<li class="list-group-item wpc-100 border-0"><a class="bd-highlight link-display-md" href="https://www.samdaleacademy.com/pages/podcast" target="_blank">Podcasts<i class="fa fa-external-link-alt fa-sm fa-sm-drawer-style px-3"></i></a></li>
+	  <li class="list-group-item wpc-100 border-0"><a class="bd-highlight link-display-md" href="https://www.samdaleacademy.com" target="_blank">The Academy<i class="fa fa-external-link-alt fa-sm fa-sm-drawer-style px-3"></i></a></li>
 	</ul>
 	
 	<!-- Footer -->
 	<div class="drawer-footer bg-light">
 		<!-- Footer Links -->
-		<div class="container-fluid pt-2" style="width:90%;">
+		<div class="container-fluid py-2">
 			<!-- Grid row -->
-		    <div class="row">
+		    <div class="row text-center">
 		    	<div class="col">
-		    		<a class="bd-highlight" id="" href="{% url 'flatpage:about_index' %}" style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><small>About</small></a>
+		    		<a class="bd-highlight fc-dark" href="{% url 'flatpage:about_index' %}"><small>About</small></a>
 		    		
 		    	</div>
 		    	<div class="col">
-		    		<a class="bd-highlight" id="" href="{% url 'flatpage:contact_index' %}"  style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><small>Contact</small></a>
+		    		<a class="bd-highlight fc-dark" href="{% url 'flatpage:contact_index' %}"><small>Contact</small></a>
 		    		
 		    	</div>
 		    	<div class="col">
-		    		<a class="bd-highlight" id="" href="" style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><small>Press</small></a>
+		    		<a class="bd-highlight fc-dark" href="{% url 'flatpage:contact_index' %}"><small>Press</small></a>
 		    		
 		    	</div>
 		    </div>
 		    <!-- Grid row -->
 		    <!-- Grid row -->
-		    <div class="row pt-0">
-		    	<div class="col text-left">
-		    		<a class="bd-highlight" id="" href="" style="font-size:10pt;color:black;font-family: 'Montserrat', sans-serif;font-weight:300;"><small>Privacy</small></a>
+		    <div class="row pt-0 text-center">
+		    	<div class="col">
+		    		<a class="bd-highlight fc-dark" href=""><small>Privacy</small></a>
 		    	</div>
 		    </div>
 		    <!-- Grid row -->
 		</div>
     	<!-- Footer Links -->
 		<!-- Copyright -->
-	    <div class="footer-copyright" style="width:100%;height:100%;">
-		      <a class="mb-2 text-center" href="" style="width:100%;position:absolute;bottom:0;color:black;font-size:10pt;"><small>© 2018 Sam Dale Academy LLC</small></a>
+	    <div class="footer-copyright">
+		      <a class="bottom-0 mb-2 text-center"><small>© 2018 Sam Dale Academy LLC</small></a>
 	    </div>
 	    <!-- Copyright -->
     </div>

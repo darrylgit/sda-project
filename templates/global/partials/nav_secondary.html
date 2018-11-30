@@ -1,13 +1,14 @@
-{% load staticfiles %}
+{% load static %}
 
 {% block extrastyles %}
 <link rel="stylesheet" type="text/css" href="{% static 'global/css/ds-nav.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'global/css/ds.css' %}">
 {% endblock %}
 
 <div class="wrapper" id="toggler">
-		<nav class="navbar nav-h fixed-top bg-white shadow-sm">
-			<div class="d-flex flex-row justify-content-start align-items-center" id="">
-				<a class="navbar-brand nav-brand li-display-brand p-0" href="{% url 'flatpage:index' %}">SAM DALE ACADEMY</a>
+		<nav class="navbar fixed-top nav-h-2 bg-white shadow-none">
+			<div class="d-flex flex-row justify-content-start align-items-center">
+				<a class="nav-h-2 bg-dark d-flex flex-column justify-content-center px-3 ml-4" href="{% url 'flatpage:index' %}"><img src="{% static 'global/img/brand/sda_site_logo_header_sample1.png' %}" width="120" alt=""></a>
 			</div>
 			<div class="d-flex flex-row justify-content-end align-items-center">
 				
@@ -25,7 +26,6 @@
 </div>
 <!-- buttons effected if inside wrapper  -->
 {% include 'global/partials/nav_side_drawer.html' %}
-
 <!--scripts-->
 {% block extrascripts %}
 <!-- jQuery CDN - Slim version (without AJAX) -->

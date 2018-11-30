@@ -3,52 +3,21 @@
 
 {% block title %}Our Blog{% endblock %}
 
-{% block extrastyles %}
-<style>
-	.p-50{
-		padding-top: 50pt;
-	}
-	.p-75{
-		padding-top: 75pt;
-	}
-	.p-100{
-		padding-top: 100pt;
-	}
-	@media (max-width: 468px){
-		.section-overlap-bottom{
-			margin-top: -75px;
-			height: 75px; 
-			width: 100vw;
-		}
-	}
-	@media (min-width: 468px){
-		.section-overlap-bottom{
-			margin-top: -50px;
-			height: 50px;
-		}
-		.wrapper-width-90 {
-			width: 90vw;
-		}
-	}
-
-</style>
-{% endblock %}
-
 {% block header %}
-<header class="container-fluid bg-light" style="height:300pt;">
-	<div class="wrapper-width-90 mx-auto p-75" style="">
-		<h1>{{ post.title }}</h1>
+<header class="container-fluid nav-mb-sm ht-md bg-light">
+	<div class="container p-wrapper px-5 py-5 wpc-80">
+		<p class="heading1">{{ post.title }}</p>
 		{% if post.published_date %}
-		    <p class="" style="font-size:11pt;">published: {{ post.published_date }}</p>
+		<p class="txt-14">published: {{ post.published_date }}</p>
 	    {% endif %}
 	</div>
 </header>
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid wrapper-width-90 section-overlap-bottom px-4 pt-4 bg-white">
-	<p class="" style="font-size:14pt;">{{ post.text|linebreaksbr }}</p>
-</div>
+	<div class="container p-wrapper nav-overlap ht-md bg-white px-5 py-4 wpc-80">
+		<p class="txt-16">{{post.text}}</p>
+	</div>
 {% endblock %}
 
 {# override footer, no footer this page #}

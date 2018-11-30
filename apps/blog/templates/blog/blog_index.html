@@ -1,0 +1,37 @@
+{% extends 'global/layout.html' %}
+{% load staticfiles %}
+
+{% block title %}Our Blog{% endblock %}
+
+{% block header %}
+	<header class="container-fluid nav-mb ht-md bg-darker d-flex flex-column justify-content-center align-items-center">
+		<p class="heading1 fc-white">Our Blog</p>
+		<blockquote class="text-center wpc-70">
+			<p class="txt-16 fc-white">"What you do in your 1-2 hours of training doesn’t make you a pro, it makes you a player, but the 22-23 hours outside of the training is what makes you a professional."</p>
+			<footer class="blockquote-footer fc-white-darker"><cite title="Source Title">SDA Academy</cite></footer>
+		</blockquote>
+	</header>
+{% endblock %} 
+
+{% block content %}
+<figure id="grid-3x" class="container-fluid">
+	{% for p in post %}
+        <a href="{% url 'blog:blog_detail' slug=p.slug %}">
+            <div class="thumbnail-wrapper">
+                {% if p.image %}
+	                <img src="{{ MEDIA_URL }}{{p.image}}" alt="thumbnail">
+	            {% endif %}
+                <div class="thumb-info">
+                    <p class="thumb-text-primary pt-1 mb-1">{{ p.title }}</p>
+                    <p class="thumb-text-secondary">{{p.description|truncatewords:9|linebreaksbr}}</p>
+                </div>
+            </div>
+        </a>
+	{% endfor %}
+</figure>
+
+<!--pagination-->
+<div class="pagination d-flex justify-content-center">
+   <a href="{% url 'blog:blog_list' %}">See More.</a>
+</div>
+{% endblock %}
