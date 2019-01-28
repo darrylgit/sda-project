@@ -1,0 +1,173 @@
+{% load static %}
+
+{% block extrastyles %}
+<link rel="stylesheet" type="text/css" href="{% static 'global/css/ds.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'global/css/ds-nav.css' %}">
+<style>
+	nav.nav-bar{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		width: 100vw;
+		padding: 0 15px;
+	}
+	.nav-brand{
+		position: absolute;
+		margin: 0 0 0 20px;
+	}
+	nav ul{
+		display: inline-block;
+	}
+	button#toggler-bars > div:nth-child(2){
+		margin: 5px 0;
+	}
+	.icon-bar{
+		background-color: white !important;
+		width: 18px !important;
+		height: 2px !important;
+	}
+	@media(max-width:768px){
+		nav.nav-bar.primary{
+			height: 65px;
+		}
+		.nav-brand{
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		.nav-brand > img {
+			height: 40px;
+		}
+		ul.nav-items.primary,
+		ul.nav-items.secondary{
+			display: none;
+		}
+		#toggler-bars{
+			position: absolute;
+			left: 25px;
+		}
+	}
+	@media(min-width: 768px){
+		nav.nav-bar.primary{
+			height: 70px;
+		}
+		.nav-brand > img {
+			height: 44px;
+		}
+		.icon-bar{
+			display: none;
+		}
+		/* primary links */
+		ul.nav-items li,
+		ul.nav-items a{
+			color: white;
+			font-size: 13px;
+			font-weight: 400;
+		}
+		ul.nav-items > li{
+			display: inline;
+		}
+		ul.nav-items.primary{
+			position: relative;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		ul.nav-items.primary > li{
+			padding: 21px 8px;
+		}
+		/* secondary links */
+		ul.nav-items.secondary{
+			position: absolute;
+			right: 15px;
+		}
+		ul.nav-items.secondary > li:nth-child(1){
+			padding: 0 10px;
+		}
+		ul.nav-items.secondary > li:nth-child(2){
+			padding: 10px 20px;
+			border: 1px solid gray;
+			border-radius: 5px;
+		}
+		ul.nav-items.secondary > li:nth-child(2) a{
+			text-transform: uppercase;
+		}
+		ul.nav-items > li.li-target{
+			position: relative;
+		}
+		/* link dropdown content, sublinks */
+		ul.nav-items > li.li-target ul.li-content{
+			visibility: hidden;
+			position: absolute;
+			left: 0;
+			top: 60px;
+			background-color: #f8f9fa;
+			min-width: 200px;
+			box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+			z-index: 1;
+			opacity:0;
+			transition:500ms ease;
+			border-top:2px solid red ;
+		}
+		ul.nav-items .li-content > li{
+			padding: 10px 30px;
+		}
+		ul.nav-items .li-content > li a{
+			font-size: 14px;
+			font-weight: 500;
+			color: #343a40;
+		}
+		ul.nav-items .li-content > li:first-child{
+			margin: 15px 0 0;
+		}
+		ul.nav-items .li-content > li:last-child{
+			margin: 0 0 15px;
+		}
+		ul.nav-items ul.li-content li:hover{
+			background-color: white;
+		}
+		ul.nav-items > li.li-target:hover ul.li-content{
+			visibility: visible;
+			opacity:1;
+		}
+	}
+</style>
+{% endblock %}
+
+<div class="wrapper">
+	<div id="toggler">
+		<nav class="nav-bar primary bg-darker">
+			<button id="toggler-bars" class="border-0 bg-transparent p-0">
+				<div class="icon-bar"></div>
+				<div class="icon-bar"></div>
+				<div class="icon-bar"></div>
+			</button>
+			<a class="nav-brand" href="{% url 'flatpage:index' %}"><img src="{% static 'global/img/brand/sda_site_logo_header_sample1.png' %}" alt="Brand Logo"></a>
+			<ul class="nav-items primary">
+				<li class="li-target">Twenty Three Hours<span class="fas fa-caret-down pl-1"></span>
+					<ul class="li-content">
+						<li><a href="{% url 'upload:video_index' %}">Videos</a></li>
+						<li><a href="{% url 'blog:blog_index' %}">Our Blog</a></li>
+					</ul>
+				</li>
+				<li><a href="{% url 'flatpage:about_index' %}">About Us</a></li>
+				<li class="li-target">Services<span class="fas fa-caret-down pl-1"></span>
+					<ul class="li-content">
+						<li><a href="">Sessions & Camps</a></li>
+						<li><a href="">Highlight Tapes</a></li>
+					</ul>
+				</li>
+				<li><a href="{% url 'shop:shop_index' %}">SDA Gear</a></li>
+			</ul>
+			<ul class="nav-items secondary" id="account">
+				<li><a href="">Log In</a></li>
+				<li><a href="">Sign Up</a></li>
+			</ul>
+		</nav>
+	</div>
+	{% include './nav2_drawer.html' %}
+    <!-- Dark Overlay element -->
+    <div class="overlay"></div>
+</div>
+
+<script>
+</script>

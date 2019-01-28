@@ -1,0 +1,110 @@
+{% load staticfiles %}
+{% block extrastyles %}
+<style>
+/* mobile first */
+/* nav side drawer */
+.wrapper {
+	display: flex;
+	width: 50%;
+}
+/* drawer markup */
+#drawer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 270px;
+	height: 100vh;
+	z-index: 9999;
+	transition: all .2s;
+	margin-left: -270px;
+	min-width: 270px;
+	max-width: 270px;
+}
+#drawer.active {
+	margin-left: 0;
+}
+
+/* navbar markup */
+ul{
+	list-style-type: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+a{
+	text-decoration: none !important;
+}
+ul.menu-items-mobile{
+	width: 100%;
+}
+ul.menu-items-mobile li a{
+	font-family: 'Montserrat', sans-serif;
+	font-weight:400;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: white;
+}
+
+ul.menu-items-mobile li{
+	padding: 15px 15px;
+}
+ul.menu-items-mobile li:hover{
+	background-color: #121212;
+}
+ul.menu-items-mobile ul.li-content li a{
+	padding: 0;
+}
+ul.menu-items-mobile li.li-target{
+	font-family: 'Montserrat', sans-serif;
+	font-weight:400;
+	font-size: 12px;
+	text-transform: uppercase;
+	color: lightgray;
+	background-color: #121212;
+}
+
+</style>
+{% endblock %}
+<nav id="drawer" class="bg-darker shadow-lg">
+	<nav class="navbar h-65 bg-darker border-bottom border-dark">
+		<button id="drawer-times" class="border-0 bg-darker p-0">
+			<div class="times">
+				<div class="tl">
+					<div class="tr"></div>
+				</div>
+			</div>
+		</button>
+	</nav>
+	<ul class="menu-items-mobile">
+		<div class="li-group">
+			<li class="li-target">Twenty Three Hours</li>
+			<ul class="li-content">
+				<li class="sublink"><a href="{% url 'upload:video_index' %}">Videos</a></li>
+				<li class="sublink"><a href="{% url 'blog:blog_index' %}">Our Blog</a></li>
+			</ul>
+		</div>
+		<li><a href="{% url 'flatpage:about_index' %}">About Us</a></li>
+		<li><a href="">Sessions & Camps</a></li>
+		<li><a href="">SDA Gear</a></li>
+	</ul>
+</nav>
+	
+<!--scripts-->
+{% block extrascripts %}
+<script>
+	(function(){
+		function drawerListeners(){
+			var target = document.getElementById("drawer");
+			var overlay = document.getElementsByClassName("overlay");
+			document.getElementById("toggler-bars").addEventListener("click", function(){
+				$(target).addClass("active");
+				$(overlay).addClass("active");
+			})
+			document.getElementById("drawer-times").addEventListener("click", function(){
+				$(target).removeClass("active");
+				$(overlay).removeClass("active");
+			})
+		}
+		document.addEventListener("DOMContentLoaded", drawerListeners, false);
+	})();
+</script>
+{% endblock %}

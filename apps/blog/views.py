@@ -9,16 +9,17 @@ class BlogIndexView(TemplateView):
 	context_object_name="post"
 	template_name="blog/blog_index.html"
 	model=Post
-
+	context = {}
 	def get(self, request):
 		try:
-			check = self.model.objects.all()[0]
-			grid = self.model.objects.all().order_by('-published_date')[:2]
+			self.context['primary'] = self.model.objects.all().order_by('-published_date')[0]
+			self.context['grid'] = self.model.objects.all().order_by('-published_date')[1:]
+
+			return render(request, self.template_name, {self.context_object_name:self.context})
 
 		except IndexError:
-			return HttpResponse("Sorry, This page is under construction...") 
 
-		return render(request, self.template_name, {self.context_object_name:grid})
+			return HttpResponse("Sorry, This page is under construction...") 
 
 class BlogListView(ListView):
 	context_object_name = 'post'

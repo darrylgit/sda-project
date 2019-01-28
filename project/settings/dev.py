@@ -21,6 +21,7 @@ INSTALLED_APPS+=[
 	'apps.upload',
     'apps.blog',
     'apps.flatpage',
+    'apps.shop',
 ]
 
 DATABASE_DEFAULT = {

@@ -10,14 +10,17 @@
 <!-- Font Awesome 5  -->
  <link rel="stylesheet" type="text/css" href="{% static 'fontawesome5.4.1/css/all.css' %}">
  <!-- Google Fonts  -->
- <link href="https://fonts.googleapis.com/css?family=Graduate|Montserrat" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600" rel="stylesheet">
 {% endblock %}
 
 {% block layout %}
-
+    
     {% block navigation %}
-    {% include 'global/partials/nav_primary.html' %}
+    {% include 'global/partials/nav2_primary.html' %}
     {% endblock %}
+    
+    {% block secondaryNav %}
+      {% endblock %}
 
     {# header unique to page #}
       {% block header %}

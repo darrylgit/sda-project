@@ -34,4 +34,7 @@ urlpatterns += [
     url(r'^videos/', include('apps.upload.urls', namespace='upload')),
     url(r'^search/?$', VideoSearchView.as_view(), name='video_search_view'), #override haystack view, custom url directs to custom view
     url(r'^our-blog/', include('apps.blog.urls', namespace='blog')),
+    url(r'^shop/', include('apps.shop.urls', namespace='shop')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+

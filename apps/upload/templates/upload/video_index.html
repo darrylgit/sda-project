@@ -8,13 +8,8 @@
 
 {% block title %}Videos{% endblock %}
 
-{% block navigation %}
-	{% include 'search/partials/nav_search.html' %}
-{% endblock %}
-
-
 {% block header %}
-<figure id="video-player" class="container-fluid nav-mb-md">
+<figure id="video-player" class="container-fluid" style="margin-top:150px;">
 	<div id="playlist-video-main">
 		<video controls>
 			<source src="{{MEDIA_URL}}{{media.primary.video}}" type="video/mp4">
@@ -38,7 +33,7 @@
 				<div class="thumbnail-wrapper">
 					<img src="{{MEDIA_URL}}{{m.video_thumbnail}}" alt="playlist video thumbnail"> 
 					<div class="playlist-video-secondary-info">
-						<p href="{{m.title}}" class="thumb-text-primary pt-1">{{m.title|truncatewords:6|linebreaksbr}}</p>
+						<p href="{{m.title}}" class="thumb-text-primary pt-1">{{m.title|truncatewords:5|linebreaksbr}}</p>
 						<p href="{{m.description}}"></p>
 					</div>
 				</div>
@@ -59,7 +54,7 @@
             <div class="thumbnail-wrapper">
                 <img src="{{ MEDIA_URL }}{{m.video_thumbnail}}" alt="playlist video thumbnail">
                 <div class="thumb-info">
-                    <p class="thumb-text-primary pt-1 mb-1">{{m.title|truncatewords:7|linebreaksbr}}</p>
+                    <p class="thumb-text-primary pt-1 mb-1">{{m.title|truncatewords:5|linebreaksbr}}</p>
                 </div>
             </div>
         </a>
